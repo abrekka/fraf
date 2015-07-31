@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.Batch" 
+    table="BATCH"
+>
+
+    <id
+        name="batchId"
+        type="java.lang.Integer"
+        column="BATCH_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_batch</param>
+        </generator>
+    </id>
+
+    <property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="fromDate"
+        type="java.util.Date"
+        column="FROM_DATE"
+        length="7"
+    />
+    <property
+        name="toDate"
+        type="java.util.Date"
+        column="TO_DATE"
+        length="7"
+    />
+	<property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to ApplUser -->
+    <many-to-one
+        name="applUser"
+        class="no.ica.elfa.model.ApplUser"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="USER_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to BatchStatus -->
+    <many-to-one
+        name="batchStatus"
+        class="no.ica.elfa.model.BatchStatus"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="BATCH_STATUS" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Invoice -->
+    <set
+        name="invoices"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="BATCH_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.Invoice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Worksheet -->
+    <!--set
+        name="worksheets"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="BATCH_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.Worksheet"
+        />
+    </set-->
+    <!-- bi-directional one-to-many association to AccountingTransaction -->
+    <set
+        name="accountingTransactions"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="BATCH_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.AccountingTransaction"
+        />
+    </set>
+	<set
+        name="creditImports"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="BATCH_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.CreditImport"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

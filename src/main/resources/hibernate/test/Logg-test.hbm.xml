@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Logg" 
+    table="LOGG_TEST"
+>
+
+    <id
+        name="logId"
+        type="java.lang.Integer"
+        column="LOG_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_logg_TEST</param>
+        </generator>
+    </id>
+
+		<list name="loggingEventThrowableWrapper" table="LOGG_THROWABLE_TEST" lazy="true">
+      <key column="log_id"/>
+      <index column="position"/>
+      <composite-element class="no.ica.fraf.model.LoggThrowable">
+          <property name="message" column="message" length="255" not-null="true"/>
+      </composite-element>
+    </list>
+
+    <property
+        name="logLevel"
+        type="java.lang.String"
+        column="LOG_LEVEL"
+        length="20"
+    />
+    <property
+        name="message"
+        type="java.lang.String"
+        column="MESSAGE"
+        length="255"
+    />
+    <property
+        name="className"
+        type="java.lang.String"
+        column="CLASS_NAME"
+        length="50"
+    />
+    <property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        length="100"
+    />
+    <property
+        name="lineNumber"
+        type="java.lang.String"
+        column="LINE_NUMBER"
+        length="6"
+    />
+    <property
+        name="methodName"
+        type="java.lang.String"
+        column="METHOD_NAME"
+        length="100"
+    />
+    <property
+        name="loggerName"
+        type="java.lang.String"
+        column="LOGGER_NAME"
+        length="100"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Timestamp"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="logDate"
+        type="java.sql.Timestamp"
+        column="LOG_DATE"
+        length="7"
+    />
+    <property
+        name="threadName"
+        type="java.lang.String"
+        column="THREAD_NAME"
+        length="100"
+    />
+    <property
+        name="userName"
+        type="java.lang.String"
+        column="USER_NAME"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

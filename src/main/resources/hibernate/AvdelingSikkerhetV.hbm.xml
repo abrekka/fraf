@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingSikkerhetV" 
+    table="AVDELING_SIKKERHET_V"
+>
+
+	<composite-id name="avdelingSikkerhetVPK" class="no.ica.fraf.model.AvdelingSikkerhetVPK">
+        <key-property 
+            name="avdelingId" 
+            column="AVDELING_ID" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="sikkerhetTypeId" 
+            column="SIKKERHET_TYPE_ID" 
+            type="java.lang.Integer"
+            length="32"
+        />
+		<key-property
+        name="sikkerhetVerdi"
+        type="java.lang.String"
+        column="SIKKERHET_VERDI"
+        length="255"
+    />
+      </composite-id>
+
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="32"
+    />
+    <property
+        name="avdelingNavn"
+        type="java.lang.String"
+        column="AVDELING_NAVN"
+        length="255"
+    />
+	<property
+        name="juridiskNavn"
+        type="java.lang.String"
+        column="JURIDISK_NAVN"
+        length="255"
+    />
+	<property
+        name="sikkerhetTypeTekst"
+        type="java.lang.String"
+        column="SIKKERHET_TYPE_TEKST"
+        length="255"
+    />
+	
+	<property
+        name="tinglyst"
+        type="java.lang.Integer"
+        column="TINGLYST"
+        length="32"
+    />
+	<property
+        name="kommentar"
+        type="java.lang.String"
+        column="KOMMENTAR"
+        length="255"
+    />
+	<property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

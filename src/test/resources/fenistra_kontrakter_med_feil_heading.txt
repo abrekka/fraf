@@ -1,0 +1,4 @@
+KontraktObjekt;KontraktObjektNR;KontraktObjekt;Terminer;StartDato;SluttDato;Aarsbeloep;Fakturabeloep
+22;3829;Fast leie;12;15.08.1993;15.08.2018;560529;46711
+54;3371;Fast leie m/mva;12;15.11.1994;15.11.2019;1190076;99173
+55;3371;Felleskost. mva ;12;15.11.1994;15.11.2019;173496;14458

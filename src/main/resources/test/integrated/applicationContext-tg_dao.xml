@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<!-- TgTotalFaktureringVDAO: Hibernate implementation -->        
+        <bean id="tgTotalFaktureringVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.tollpost.dao.hibernate.TgTotalFaktureringVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+	<bean id="tgNotImportedVDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgNotImportedVDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgMeldingExtVDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgMeldingExtVDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgImportDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgImportDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="tgFakturaPkgDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.pkg.hibernate.TgFakturaPkgDAOHibernate"
+				autowire="byName">
+					<property name="test" value="true"/>
+			</bean>
+		</property>
+			
+	</bean>
+
+	<bean id="tgFakturaDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgFakturaDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgE2bPkgDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.pkg.hibernate.TgE2bPkgDAOHibernate"
+				autowire="byName">
+				<property name="test" value="true"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgFileSequenceDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgFileSequenceDAOHibernate"
+				autowire="byName">
+				<property name="test" value="true"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgFakturaLinjeVDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgFakturaLinjeVDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgReconcilVDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.TgReconcilVDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgImportPkgDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.pkg.hibernate.TgImportPkgDAOHibernate"
+				autowire="byName">
+					<property name="test" value="true"/>
+			</bean>
+		</property>
+			
+	</bean>
+	<bean id="applParamTollpostDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.dao.hibernate.ApplParamTollpostDAOHibernate"
+				autowire="byName">
+			</bean>
+		</property>
+			
+	</bean>
+</beans>

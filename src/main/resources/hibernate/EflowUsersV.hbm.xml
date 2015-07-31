@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.EflowUsersV" 
+    table="EFLOW_USERS_V"
+>
+
+    <id
+        name="userNetworkName"
+        type="java.lang.String"
+        column="USER_NETWORK_NAME"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="userName"
+        type="java.lang.String"
+        column="USER_NAME"
+        length="255"
+    />
+
+</class>
+</hibernate-mapping>

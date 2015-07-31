@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BetingelseGruppe" 
+    table="BETINGELSE_GRUPPE_TEST"
+>
+
+    <id
+        name="betingelseGruppeId"
+        type="java.lang.Integer"
+        column="BETINGELSE_GRUPPE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_betingelse_gruppe_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="betingelseGruppeNavn"
+        type="java.lang.String"
+        column="BETINGELSE_GRUPPE_NAVN"
+        length="3"
+    />
+    <property
+        name="fakturerMedFranchise"
+        type="java.lang.Integer"
+        column="FAKTURER_MED_FRANCHISE"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to KontraktBetingelse -->
+    <!-- bi-directional one-to-many association to FakturaLinje -->
+    <set
+        name="betingelseTypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BETINGELSE_GRUPPE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.BetingelseType"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

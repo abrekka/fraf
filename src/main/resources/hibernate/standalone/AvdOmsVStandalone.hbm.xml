@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingOmsetningV" 
+    table="AVD_OMS_V_STANDALONE"
+>
+
+	    <composite-id name="avdelingOmsetningVPK" class="no.ica.fraf.model.AvdelingOmsetningVPK">
+        <key-property 
+            name="avdnr" 
+            column="AVDNR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="aar" 
+            column="AAR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property
+        name="periode"
+        type="java.lang.Integer"
+        column="PERIODE"
+        length="32"
+    />
+    </composite-id>    
+
+    <property
+        name="avdelingNavn"
+        type="java.lang.String"
+        column="AVDELING_NAVN"
+        length="50"
+    />
+    <property
+        name="kontraktType"
+        type="java.lang.String"
+        column="KONTRAKT_TYPE"
+        length="30"
+    />
+    
+    <property
+        name="korrigertBelop"
+        type="java.math.BigDecimal"
+        column="KORRIGERT_BELOP"
+        length="32"
+    />
+	
+	<property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="32"
+    />
+    
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

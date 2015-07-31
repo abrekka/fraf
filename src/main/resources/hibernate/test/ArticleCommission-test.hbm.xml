@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.ArticleCommission" 
+    table="ELFA_ARTICLE_COMMISSION_TEST"
+>
+
+    <id
+        name="articleCommissionId"
+        type="java.lang.Integer"
+        column="ARTICLE_COMMISSION_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_article_commission_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="commissionType"
+        type="java.lang.String"
+        column="COMMISSION_TYPE"
+        length="50"
+    />
+    <property
+        name="articleNo"
+        type="java.math.BigDecimal"
+        column="ARTICLE_NO"
+        length="32"
+    />
+    <property
+        name="formatId"
+        type="java.lang.Integer"
+        column="FORMAT_ID"
+        length="32"
+    />
+    <property
+        name="regionId"
+        type="java.lang.Integer"
+        column="REGION_ID"
+        length="32"
+    />
+    <property
+        name="commissionPercentage"
+        type="java.math.BigDecimal"
+        column="COMMISSION_PERCENTAGE"
+        length="32"
+    />
+	<property
+        name="commissionComment"
+        type="java.lang.String"
+        column="COMMISSION_COMMENT"
+        length="255"
+    />
+	
+	<property
+        name="articleName"
+        type="java.lang.String"
+        column="ARTICLE_NAME"
+        length="255"
+    />
+	<property
+        name="code"
+        type="java.lang.String"
+        column="CODE"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="supplierAccount"
+        class="no.ica.elfa.model.SupplierAccount"
+        not-null="false"
+        lazy="proxy"
+    >
+        <column name="SUPPLIER_NO" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

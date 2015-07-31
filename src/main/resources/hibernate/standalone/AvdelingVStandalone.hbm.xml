@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingV" 
+    table="AVDELING_V_STANDALONE"
+>
+
+    <id
+        name="avdelingId"
+        type="java.lang.Integer"
+        column="AVDELING_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        unique="true"
+        length="22"
+    />
+    <property
+        name="avdelingNavn"
+        type="java.lang.String"
+        column="AVDELING_NAVN"
+        length="50"
+    />
+    <property
+        name="opprettetDato"
+        type="java.util.Date"
+        column="OPPRETTET_DATO"
+        length="10"
+    />
+    <property
+        name="endretDato"
+        type="java.util.Date"
+        column="ENDRET_DATO"
+        length="7"
+    />
+    <property
+        name="kontraktFraDato"
+        type="java.util.Date"
+        column="KONTRAKT_FRA_DATO"
+        length="7"
+    />
+    <property
+        name="kontraktTilDato"
+        type="java.util.Date"
+        column="KONTRAKT_TIL_DATO"
+        length="7"
+    />
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="255"
+    />
+    <property
+        name="kontraktType"
+        type="java.lang.String"
+        column="KONTRAKT_TYPE"
+        length="255"
+    />
+    
+    <property
+        name="region"
+        type="java.lang.String"
+        column="REGION"
+        length="35"
+    />
+    <property
+        name="kjede"
+        type="java.lang.String"
+        column="KJEDE"
+        length="30"
+    />
+    <property
+        name="bokfSelskap"
+        type="java.lang.String"
+        column="BOKF_SELSKAP"
+        length="50"
+    />
+    <property
+        name="selskapRegnskap"
+        type="java.lang.String"
+        column="SELSKAP_REGNSKAP"
+        length="3"
+    />
+    
+    <property
+        name="juridiskNavn"
+        type="java.lang.String"
+        column="JURIDISK_NAVN"
+        length="40"
+    />
+    
+    <property
+        name="adr1"
+        type="java.lang.String"
+        column="ADR_1"
+        length="30"
+    />
+    
+    <property
+        name="adr2"
+        type="java.lang.String"
+        column="ADR_2"
+        length="30"
+    />
+    
+    <property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="5"
+    />
+    
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="25"
+    />
+    
+    <property
+        name="ansvarlig"
+        type="java.lang.String"
+        column="ANSVARLIG"
+        length="30"
+    />
+    
+    <property
+        name="orgNr"
+        type="java.lang.String"
+        column="ORG_NR"
+        unique="true"
+        length="22"
+    />
+    
+    <property
+        name="avtaletype"
+        type="java.lang.String"
+        column="AVTALETYPE"
+        length="2"
+    />
+    
+    <property
+        name="nedlagt"
+        type="java.util.Date"
+        column="NEDLAGT"
+        length="10"
+    />
+    
+    <property
+        name="kontraktUtgaar"
+        type="java.lang.Integer"
+        column="KONTRAKT_UTGAAR"
+        unique="true"
+        length="22"
+    />
+    <property
+        name="salgssjef"
+        type="java.lang.String"
+        column="SALGSSJEF"
+        length="255"
+    />
+    <property
+        name="fornyelseTypeTxt"
+        type="java.lang.String"
+        column="FORNYELSE_TYPE_TXT"
+        length="50"
+    />
+    <property
+        name="pib"
+        type="java.lang.Integer"
+        column="PIB"
+        length="1"
+    />
+    <property
+        name="franchisetaker"
+        type="java.lang.String"
+        column="FRANCHISETAKER"
+        length="250"
+    />
+    <property
+        name="dtStart"
+        type="java.util.Date"
+        column="DT_START"
+        length="10"
+    />
+	<property
+        name="archiveInfo"
+        type="java.lang.String"
+        column="ARCHIVE_INFO"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

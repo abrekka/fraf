@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgImport" 
+    table="TG_IMPORT_TEST"
+>
+
+    <id
+        name="linjeId"
+        type="java.lang.Integer"
+        column="LINJE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="meldingId"
+        type="java.lang.Integer"
+        column="MELDING_ID"
+        not-null="true"
+        length="32"
+    />
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="transDato"
+        type="java.util.Date"
+        column="TRANS_DATO"
+        not-null="false"
+        length="10"
+    />
+    <property
+        name="antTrans"
+        type="java.lang.Integer"
+        column="ANT_TRANS"
+        not-null="false"
+        length="32"
+    />
+	
+	<property
+        name="sendingsnr"
+        type="java.math.BigDecimal"
+        column="SENDINGSNR"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="kolliId"
+        type="java.lang.String"
+        column="KOLLI_ID"
+        length="255"
+    />
+	<property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+	<property
+        name="meldingstype"
+        type="java.lang.String"
+        column="MELDINGSTYPE"
+        length="100"
+    />
+    <property
+        name="dtReg"
+        type="java.util.Date"
+        column="DT_REG"
+        length="10"
+    />
+	<property
+        name="transfilId"
+        type="java.math.BigDecimal"
+        column="TRANSFIL_ID"
+        length="32"
+    />
+	<property
+        name="avtaletype"
+        type="java.lang.String"
+        column="AVTALETYPE"
+        length="1"
+    />
+	<property
+        name="dataset"
+        type="java.lang.String"
+        column="DATASET"
+        length="1"
+    />
+	<!--property
+        name="fakturaId"
+        type="java.lang.Integer"
+        column="FAKTURA_ID"
+        length="1"
+    /-->
+	<property
+        name="lopenrFil"
+        type="java.lang.String"
+        column="LOPENR_FIL"
+        length="1"
+    />
+	<property
+        name="transType"
+        type="java.lang.String"
+        column="TRANS_TYPE"
+        length="4"
+    />
+	<property
+        name="butiksNr"
+        type="java.lang.Integer"
+        column="BUTIKS_NR"
+        length="32"
+    />
+	
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+	<many-to-one
+        name="tgFaktura"
+        class="no.ica.tollpost.model.TgFaktura"
+
+    >
+        <column name="FAKTURA_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

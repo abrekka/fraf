@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.KontraktBetingelse" 
+    table="KONTRAKT_BETINGELSE_TEST"
+>
+
+    <id
+        name="kontraktBetingelseId"
+        type="java.lang.Integer"
+        column="KONTRAKT_BETINGELSE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_kontrakt_betingelse_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="22"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to KontraktType -->
+    <many-to-one
+        name="kontraktType"
+        class="no.ica.fraf.model.KontraktType"
+        not-null="true"
+    >
+        <column name="KONTRAKT_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to BetingelseType -->
+    <many-to-one
+        name="betingelseType"
+        class="no.ica.fraf.model.BetingelseType"
+        not-null="true"
+    >
+        <column name="BETINGELSE_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningFrekvensType"
+        class="no.ica.fraf.model.AvregningFrekvensType"
+        not-null="true"
+    >
+        <column name="AVREGNING_FREKVENS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningType"
+        class="no.ica.fraf.model.AvregningType"
+        not-null="true"
+    >
+        <column name="AVREGNING_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

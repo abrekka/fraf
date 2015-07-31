@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.EepLineItem" 
+    table="ELFA_EEP_LINE_ITEM_TEST"
+>
+
+    <id
+        name="eepLineItemId"
+        type="java.lang.Integer"
+        column="EEP_LINE_ITEM_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_elfa_eep_line_item_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="fileType"
+        type="java.lang.String"
+        column="FILE_TYPE"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="fromDate"
+        type="java.sql.Timestamp"
+        column="FROM_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="toDate"
+        type="java.sql.Timestamp"
+        column="TO_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="storeNumber"
+        type="java.lang.Integer"
+        column="STORE_NUMBER"
+        length="22"
+    />
+    <property
+        name="supplierNumber"
+        type="java.lang.Integer"
+        column="SUPPLIER_NUMBER"
+        length="22"
+    />
+    <property
+        name="articleNumber"
+        type="java.math.BigDecimal"
+        column="ARTICLE_NUMBER"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="articleDescription"
+        type="java.lang.String"
+        column="ARTICLE_DESCRIPTION"
+        length="30"
+    />
+    <property
+        name="numberOfSoldVouchers"
+        type="java.lang.Integer"
+        column="NUMBER_OF_SOLD_VOUCHERS"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="articleOutPrice"
+        type="java.math.BigDecimal"
+        column="ARTICLE_OUT_PRICE"
+        length="22"
+    />
+    <property
+        name="referenceNumber"
+        type="java.math.BigDecimal"
+        column="REFERENCE_NUMBER"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="createdDate"
+        type="java.sql.Timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="stockApprovedDate"
+        type="java.sql.Timestamp"
+        column="STOCK_APPROVED_DATE"
+        length="7"
+    />
+    <property
+        name="stockApprovedBy"
+        type="java.lang.String"
+        column="STOCK_APPROVED_BY"
+        length="10"
+    />
+	 <property
+        name="counter"
+        type="java.lang.Integer"
+        column="COUNTER"
+        length="32"
+    />
+	<property
+        name="locNr"
+        type="java.lang.Integer"
+        column="LOC_NR"
+        length="32"
+    />
+    <!--property
+        name="batchId"
+        type="java.math.BigDecimal"
+        column="BATCH_ID"
+        length="22"
+    /-->
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to AccountingTransaction -->
+    <!--set
+        name="accountingTransactions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="EEP_LINE_ITEM_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.AccountingTransaction"
+        />
+    </set-->
+    <!-- bi-directional many-to-one association to EepHead -->
+    <many-to-one
+        name="eepHead"
+        class="no.ica.elfa.model.EepHead"
+        not-null="true"
+    >
+        <column name="EEP_HEAD_ID" />
+    </many-to-one>
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+    >
+        <column name="BATCH_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.EepHead" 
+    table="ELFA_EEP_HEAD_TEST"
+>
+
+    <id
+        name="eepHeadId"
+        type="java.lang.Integer"
+        column="EEP_HEAD_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_elfa_eep_head_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="fileType"
+        type="java.lang.String"
+        column="FILE_TYPE"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="fileDate"
+        type="java.sql.Timestamp"
+        column="FILE_DATE"
+        length="7"
+    />
+    <property
+        name="periodStart"
+        type="java.sql.Timestamp"
+        column="PERIOD_START"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="periodEnd"
+        type="java.sql.Timestamp"
+        column="PERIOD_END"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="numberOfRecords"
+        type="java.lang.Integer"
+        column="NUMBER_OF_RECORDS"
+        length="22"
+    />
+    <property
+        name="sequenceNumber"
+        type="java.lang.Integer"
+        column="SEQUENCE_NUMBER"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="createdDate"
+        type="java.sql.Timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EepLineItem -->
+    <set
+        name="eepLineItems"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="EEP_HEAD_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.EepLineItem"
+        />
+    </set>
+	<many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+    >
+        <column name="BATCH_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

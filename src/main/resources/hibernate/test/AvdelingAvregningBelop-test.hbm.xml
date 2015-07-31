@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.fraf.model.AvdelingAvregningBelop" 
+    table="AVDELING_AVREGNING_BELOP_TEST"
+>
+
+    <id
+        name="avregningBelopId"
+        type="java.lang.Integer"
+        column="AVREGNING_BELOP_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avregning_belop_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="maaned"
+        type="java.lang.Integer"
+        column="MAANED"
+        length="32"
+        not-null="true"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+        not-null="true"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdelingAvregningImport"
+        class="no.ica.fraf.model.AvdelingAvregningImport"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVREGNING_IMPORT_ID" />
+    </many-to-one>
+	<set
+        name="avdelingAvregnings"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVREGNING_BELOP_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingAvregning"
+        />
+    </set>
+</class>
+</hibernate-mapping>

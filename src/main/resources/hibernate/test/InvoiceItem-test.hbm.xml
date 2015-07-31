@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.InvoiceItem" 
+    table="ELFA_INVOICE_ITEM_TEST"
+>
+
+    <id
+        name="invoiceItemId"
+        type="java.math.BigDecimal"
+        column="INVOICE_ITEM_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="createdDate"
+        type="java.sql.Timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="articleNo"
+        type="java.math.BigDecimal"
+        column="ARTICLE_NO"
+        length="22"
+    />
+    <property
+        name="articlePrice"
+        type="java.math.BigDecimal"
+        column="ARTICLE_PRICE"
+        length="22"
+    />
+    <property
+        name="numberOfArticles"
+        type="java.math.BigDecimal"
+        column="NUMBER_OF_ARTICLES"
+        length="22"
+    />
+    <property
+        name="invoiceItemDescription"
+        type="java.lang.String"
+        column="INVOICE_ITEM_DESCRIPTION"
+        length="2000"
+    />
+    <property
+        name="vatAmount"
+        type="java.math.BigDecimal"
+        column="VAT_AMOUNT"
+        length="22"
+    />
+    <property
+        name="invoiceItemAmountSto"
+        type="java.math.BigDecimal"
+        column="INVOICE_ITEM_AMOUNT_STO"
+        length="22"
+    />
+    <property
+        name="commissionAmountSto"
+        type="java.math.BigDecimal"
+        column="COMMISSION_AMOUNT_STO"
+        length="22"
+    />
+    <property
+        name="commissionAmountSup"
+        type="java.math.BigDecimal"
+        column="COMMISSION_AMOUNT_SUP"
+        length="22"
+    />
+    <property
+        name="commissionPercentageSto"
+        type="java.math.BigDecimal"
+        column="COMMISSION_PERCENTAGE_STO"
+        length="22"
+    />
+    <property
+        name="commissionPercentageSup"
+        type="java.math.BigDecimal"
+        column="COMMISSION_PERCENTAGE_SUP"
+        length="22"
+    />
+    <property
+        name="invoiceItemAmountSup"
+        type="java.math.BigDecimal"
+        column="INVOICE_ITEM_AMOUNT_SUP"
+        length="22"
+    />
+    <property
+        name="amountTotal"
+        type="java.math.BigDecimal"
+        column="AMOUNT_TOTAL"
+        length="22"
+    />
+    <property
+        name="invoiceAmountItem"
+        type="java.math.BigDecimal"
+        column="INVOICE_AMOUNT_ITEM"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Invoice -->
+    <many-to-one
+        name="invoice"
+        class="no.ica.elfa.model.Invoice"
+        not-null="true"
+    >
+        <column name="INVOICE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

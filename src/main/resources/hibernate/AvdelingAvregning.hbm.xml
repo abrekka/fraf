@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.fraf.model.AvdelingAvregning" 
+    table="AVDELING_AVREGNING"
+>
+
+    <id
+        name="avdelingAvregningId"
+        type="java.lang.Integer"
+        column="AVDELING_AVREGNING_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="avregnetAvgift"
+        type="java.math.BigDecimal"
+        column="AVREGNET_AVGIFT"
+        length="32"
+        not-null="true"
+    />
+    <property
+        name="fakturertAvgift"
+        type="java.math.BigDecimal"
+        column="FAKTURERT_AVGIFT"
+        length="32"
+        not-null="true"
+    />
+	<property
+        name="avregning"
+        type="java.math.BigDecimal"
+        column="AVREGNING"
+        length="32"
+        not-null="true"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdelingAvregningBelop"
+        class="no.ica.fraf.model.AvdelingAvregningBelop"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVREGNING_BELOP_ID" />
+    </many-to-one>
+	<many-to-one
+        name="avdelingBetingelse"
+        class="no.ica.fraf.model.AvdelingBetingelse"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVDELING_BETINGELSE_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

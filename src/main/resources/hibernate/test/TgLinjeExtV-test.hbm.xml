@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgLinjeExtV" 
+    table="TG_LINJE_EXT_V_TEST"
+>
+
+    <id
+        name="linjeId"
+        type="java.lang.Integer"
+        column="LINJE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="lokasjonId"
+        type="java.lang.Integer"
+        column="LOKASJON_ID"
+        not-null="true"
+        length="32"
+    />
+    <property
+        name="transDato"
+        type="java.util.Date"
+        column="TRANS_DATO"
+        not-null="false"
+        length="10"
+    />
+    <property
+        name="antTrans"
+        type="java.lang.Integer"
+        column="ANT_TRANS"
+        not-null="false"
+        length="32"
+    />
+	
+	<property
+        name="sendingsnr"
+        type="java.math.BigDecimal"
+        column="SENDINGSNR"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="kolliId"
+        type="java.lang.String"
+        column="KOLLI_ID"
+        length="255"
+    />
+	<property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+    <property
+        name="dtReg"
+        type="java.util.Date"
+        column="DT_REG"
+        length="10"
+    />
+	    <property
+        name="transfilId"
+        type="java.math.BigDecimal"
+        column="TRANSFIL_ID"
+        length="32"
+    />
+	<property
+        name="transType"
+        type="java.lang.String"
+        column="TRANS_TYPE"
+        length="4"
+    />
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="tgMeldingExtV"
+        class="no.ica.tollpost.model.TgMeldingExtV"
+        not-null="true"
+    >
+        <column name="MELDING_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

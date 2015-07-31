@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.Garanti" 
+    table="GARANTI"
+>
+
+    <id
+        name="garantiId"
+        type="java.lang.Integer"
+        column="GARANTI_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_garanti</param>
+        </generator>
+    </id>
+
+	<property
+        name="garantiTxt"
+        type="java.lang.String"
+        column="GARANTI_TXT"
+        length="500"
+    />
+
+	<property
+        name="garantiVerdi"
+        type="java.math.BigDecimal"
+        column="GARANTI_VERDI"
+        length="500"
+    />
+    
+    <!-- Associations -->
+	<many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+    >
+        <column name="AVDELING_ID" not-null="true" />
+    </many-to-one>
+  
+
+</class>
+</hibernate-mapping>

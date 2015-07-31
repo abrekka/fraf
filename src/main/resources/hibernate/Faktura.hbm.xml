@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="true">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Faktura" 
+    table="FAKTURA"
+    lazy="true"
+>
+
+    <id
+        name="fakturaId"
+        type="java.lang.Integer"
+        column="FAKTURA_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_faktura</param>
+        </generator>
+    </id>
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="22"
+    />
+    <property
+        name="fakturaDato"
+        type="java.sql.Timestamp"
+        column="FAKTURA_DATO"
+        length="7"
+    />
+    <property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+        length="22"
+    />
+    <property
+        name="fraPeriode"
+        type="java.lang.Integer"
+        column="FRA_PERIODE"
+        length="22"
+    />
+    <property
+        name="forfallDato"
+        type="java.sql.Timestamp"
+        column="FORFALL_DATO"
+        length="7"
+    />
+    <property
+        name="tilPeriode"
+        type="java.lang.Integer"
+        column="TIL_PERIODE"
+        length="22"
+    />
+    <property
+        name="fakturaNr"
+        type="java.lang.String"
+        column="FAKTURA_NR"
+        length="50"
+    />
+    <property
+        name="totalBelop"
+        type="java.math.BigDecimal"
+        column="TOTAL_BELOP"
+        length="38"
+    />
+    <property
+        name="opprettetDato"
+        type="java.sql.Timestamp"
+        column="OPPRETTET_DATO"
+        length="7"
+    />
+    <property
+        name="fakturaTittel"
+        type="java.lang.String"
+        column="FAKTURA_TITTEL"
+        length="255"
+    />
+    <property
+        name="grunnlagBelop"
+        type="java.math.BigDecimal"
+        column="GRUNNLAG_BELOP"
+        length="38"
+    />
+    <property
+        name="fakturaTekst"
+        type="java.lang.String"
+        column="FAKTURA_TEKST"
+        length="2000"
+    />
+    <property
+        name="mottakerNavn"
+        type="java.lang.String"
+        column="MOTTAKER_NAVN"
+        length="255"
+    />
+    <property
+        name="adresse1"
+        type="java.lang.String"
+        column="ADRESSE1"
+        length="255"
+    />
+    <property
+        name="adresse2"
+        type="java.lang.String"
+        column="ADRESSE2"
+        length="255"
+    />
+    <property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="50"
+    />
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="50"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="38"
+    />
+    <property
+        name="mvaBelop"
+        type="java.math.BigDecimal"
+        column="MVA_BELOP"
+        length="38"
+    />
+    <property
+        name="reversert"
+        type="java.lang.Integer"
+        column="REVERSERT"
+        length="1"
+    />
+    <property
+        name="reversertFakturaId"
+        type="java.lang.Integer"
+        column="REVERSERT_FAKTURA_ID"
+        length="1"
+    />
+    <property
+        name="slettet"
+        type="java.lang.Integer"
+        column="SLETTET"
+        length="1"
+    />
+	<property
+        name="kid"
+        type="java.lang.String"
+        column="KID"
+        length="21"
+    />
+	<property
+        name="xmlGenerertDato"
+        type="java.util.Date"
+        column="XML_GENERERT_DATO"
+        length="32"
+    />
+	<property
+        name="brukSomGrunnlag"
+        type="java.lang.Integer"
+        column="BRUK_SOM_GRUNNLAG"
+        length="32"
+    />
+	
+	<property
+        name="avsenderNavn"
+        type="java.lang.String"
+        column="AVSENDER_NAVN"
+        length="100"
+    />
+	<property
+        name="avsenderAdresse1"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE1"
+        length="100"
+    />
+	<property
+        name="avsenderAdresse2"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE2"
+        length="100"
+    />
+	<property
+        name="avsenderAdresse3"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE3"
+        length="100"
+    />
+	<property
+        name="avtalenr"
+        type="java.lang.String"
+        column="AVTALENR"
+        length="100"
+    />
+	<property
+        name="juridiskNavn"
+        type="java.lang.String"
+        column="JURIDISK_NAVN"
+        length="100"
+    />
+	<property
+        name="avsenderOrgNr"
+        type="java.lang.String"
+        column="AVSENDER_ORG_NR"
+        length="100"
+    />
+	<property
+        name="avsenderTelefon"
+        type="java.lang.String"
+        column="AVSENDER_TELEFON"
+        length="100"
+    />
+	<property
+        name="avsenderTelefax"
+        type="java.lang.String"
+        column="AVSENDER_TELEFAX"
+        length="100"
+    />
+	<property
+        name="avsenderKontonr"
+        type="java.lang.String"
+        column="AVSENDER_KONTONR"
+        length="100"
+    />
+	<property
+        name="fakturertAv"
+        type="java.lang.String"
+        column="FAKTURERT_AV"
+        length="100"
+    />
+	<property
+        name="icaKontoTekst"
+        type="java.lang.String"
+        column="ICA_KONTO_TEKST"
+        length="100"
+    />
+	<property
+        name="harSatsLinje"
+        type="java.lang.Integer"
+        column="HAR_SATS_LINJE"
+        length="32"
+    />
+	<property
+        name="overtrekksrente"
+        type="java.lang.String"
+        column="OVERTREKKSRENTE"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Bunt -->
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        fetch="join"
+        not-null="true"
+		lazy="proxy"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to FakturaLinje -->
+    <set
+        name="fakturaLinjes"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+		order-by="BETINGELSE_TYPE_ID,PERIODE"
+    >
+        <key>
+            <column name="FAKTURA_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.FakturaLinje"
+        />
+    </set>
+    
+    <set
+        name="fakturaTeksts"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+				order-by="sortering"		
+    >
+        <key>
+            <column name="FAKTURA_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.FakturaTekst"
+        />
+    </set>
+    
+    <set
+        name="regnskapKladds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+		order-by="SELSKAP"
+    >
+        <key>
+            <column name="FAKTURA_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.RegnskapKladd"
+        />
+    </set>
+    
+    <many-to-one
+        name="betingelseGruppe"
+        class="no.ica.fraf.model.BetingelseGruppe"
+        not-null="true"
+		lazy="no-proxy"
+    >
+        <column name="BETINGELSE_GRUPPE_ID" />
+    </many-to-one>
+
+	<many-to-one
+        name="bokfSelskap"
+        class="no.ica.fraf.model.BokfSelskap"
+        not-null="true"
+		lazy="no-proxy"
+    >
+        <column name="SELSKAP_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

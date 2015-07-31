@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.MrTransaksjonTyperEd" 
+    table="MR_TRANSAKSJONTYPERED"
+>
+
+    <id
+        name="transaksjonTypeEdId"
+        type="java.lang.Integer"
+        column="TRANSAKSJONTYPEEDID"
+    >
+    
+    </id>
+
+    
+
+    <!-- Associations -->
+	<many-to-one
+        name="mrKonti"
+        class="no.ica.fraf.model.MrKonti"
+        not-null="true"
+        insert="false"
+        update="false"
+    >
+        <column name="KONTOID" />
+    </many-to-one>
+  
+</class>
+</hibernate-mapping>

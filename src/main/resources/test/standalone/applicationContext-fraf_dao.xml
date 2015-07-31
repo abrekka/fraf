@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+      <!-- ApplParamDAO: Hibernate implementation -->        
+        <bean id="applParamDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.ApplParamDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 
+		
+		<!-- ApplUserDAO: Hibernate implementation -->        
+        <bean id="applUserDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.ApplUserDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 
+		
+		<!-- ApplUserTypeDAO: Hibernate implementation -->        
+        <bean id="applUserTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.ApplUserTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 
+		
+		<!-- AvdelingVDAO: Hibernate implementation -->        
+        <bean id="avdelingVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 
+		
+        <bean id="departmentDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapDepartmentDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean> 
+
+			
+		
+			
+		
+		<!-- BokfSelskapDAO: Hibernate implementation -->        
+        <bean id="bokfSelskapDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BokfSelskapDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- AvdelingStatusDAO: Hibernate implementation -->        
+        <bean id="avdelingStatusDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingStatusDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		<!-- KontraktTypeDAO: Hibernate implementation -->        
+        <bean id="kontraktTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.KontraktTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- AvdelingDAO: Hibernate implementation -->        
+        <bean id="avdelingDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+			
+		
+		<!-- AvdelingKontraktDAO: Hibernate implementation -->        
+        <bean id="avdelingKontraktDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingKontraktDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- AvregningTypeDAO: Hibernate implementation -->        
+        <bean id="avregningTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvregningTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- AvregningBasisTypeDAO: Hibernate implementation -->        
+        <bean id="avregningBasisTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvregningBasisTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- AvregningFrekvensTypeDAO: Hibernate implementation -->        
+        <bean id="avregningFrekvensTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvregningFrekvensTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 		
+		
+		<!-- BetingelseTypeDAO: Hibernate implementation -->        
+        <bean id="betingelseTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BetingelseTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 	
+		
+		<!-- AvdelingOmsetningDAO: Hibernate implementation -->        
+        <bean id="avdelingOmsetningDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingOmsetningDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 
+		
+		<!-- FornyelseTypeDAO: Hibernate implementation -->        
+        <bean id="fornyelseTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FornyelseTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 	
+		
+		<!-- SikkerhetTypeDAO: Hibernate implementation -->        
+        <bean id="sikkerhetTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SikkerhetTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean> 	
+		
+		<!-- MvaDAO: Hibernate implementation -->        
+        <bean id="mvaDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.MvaDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- KontraktBetingelseDAO: Hibernate implementation -->        
+        <bean id="kontraktBetingelseDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.KontraktBetingelseDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- FakturaDAO: Hibernate implementation -->        
+        <bean id="fakturaDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaDAOHibernate" autowire="byName">
+				<property name="buntDAO" ref="buntDAO"/>
+			</bean>
+        </property>
+		</bean>
+		
+		<!-- ImportBetingelseDAO: Hibernate implementation -->        
+        <bean id="importBetingelseDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.ImportBetingelseDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- ImportBetingelsePkgDAO: Hibernate implementation -->        
+        <bean id="importBetingelsePkgDAO" class="no.ica.fraf.dao.hibernate.pkg.ImportBetingelsePkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+		
+		<!-- BetingelseGruppeDAO: Hibernate implementation -->        
+        <bean id="betingelseGruppeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BetingelseGruppeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- BuntDAO: Hibernate implementation -->        
+        <bean id="buntDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BuntDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- FakturaBuntVDAO: Hibernate implementation -->        
+        <bean id="fakturaBuntVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaBuntVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		
+		
+		
+		<!-- FakturaTekstDAO: Hibernate implementation -->        
+        <bean id="fakturaTekstDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaTekstDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- FakturaLinjeDAO: Hibernate implementation -->        
+        <bean id="fakturaLinjeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaLinjeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- FranchisePkgDAO: Hibernate implementation -->        
+        <bean id="franchisePkgDAO" class="no.ica.fraf.dao.hibernate.pkg.FranchisePkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+		
+		<!-- BuntPkgDAO: Hibernate implementation -->        
+        <bean id="buntPkgDAO" class="no.ica.fraf.dao.hibernate.pkg.BuntPkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+		
+		<!-- RegnskapPkgDAO: Hibernate implementation -->        
+        <bean id="regnskapPkgDAO" class="no.ica.fraf.dao.hibernate.pkg.RegnskapPkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+		
+		<!-- FakturaFeilDAO: Hibernate implementation -->        
+        <bean id="fakturaFeilDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaFeilDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- AvdelingOmsetningPkgDAO: Hibernate implementation -->        
+        <bean id="avdelingOmsetningPkgDAO" class="no.ica.fraf.dao.hibernate.pkg.AvdelingOmsetningPkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+		
+		<!-- BetingelseTotalVDAO: Hibernate implementation -->        
+        <bean id="betingelseTotalVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BetingelseTotalVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- AvdelingBetingelseDAO: Hibernate implementation -->        
+        <bean id="avdelingBetingelseDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingBetingelseDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- LoggDAO: Hibernate implementation -->        
+        <bean id="loggDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.LoggDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		
+		
+		<!-- KjedeDAO: Hibernate implementation -->        
+        <bean id="kjedeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.KjedeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- LaasTypeDAO: Hibernate implementation -->        
+        <bean id="laasTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.LaasTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- LaasDAO: Hibernate implementation -->        
+        <bean id="laasDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.LaasDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- BuntStatusDAO: Hibernate implementation -->        
+        <bean id="buntStatusDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BuntStatusDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- BuntTypeDAO: Hibernate implementation -->        
+        <bean id="buntTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BuntTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		
+		
+		
+		
+		<!-- LkKontraktobjekterDAO: Hibernate implementation -->        
+        <bean id="lkKontraktobjekterDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.fenistra.LkKontraktobjekterDAOHibernate">
+            <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+            </bean>
+        </property>
+        </bean>
+        
+        <!-- LfFakturaPosterDAO: Hibernate implementation -->        
+        <bean id="lfFakturaPosterDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.fenistra.LfFakturaPosterDAOHibernate">
+            <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+            </bean>
+        </property>
+        </bean>
+        
+
+		<!-- SpeiletBetingelseDAO: Hibernate implementation -->        
+        <bean id="speiletBetingelseDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SpeiletBetingelseDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- SpeiletKostnadDAO: Hibernate implementation -->        
+        <bean id="speiletKostnadDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SpeiletKostnadDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- BuntFeilDAO: Hibernate implementation -->        
+        <bean id="buntFeilDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.BuntFeilDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- TotalFaktureringVDAO: Hibernate implementation -->        
+        <bean id="totalFaktureringVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.TotalFaktureringVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		
+		<!-- MangelTypeDAO: Hibernate implementation -->        
+        <bean id="mangelTypeDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.MangelTypeDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+
+		
+		
+		<!-- RegnskapKlassDAO: Hibernate implementation -->        
+        <bean id="regnskapKladdDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.RegnskapKladdDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<!-- MrKontiDAO: Hibernate implementation -->        
+<!--        <bean id="mrKontiDAO" parent="txProxyTemplateSqlServer"> -->
+<!--    	<property name="target">-->
+<!--            <bean class="no.ica.fraf.dao.hibernate.fenistra.MrKontiDAOHibernate">-->
+<!--            <property name="sessionFactory"><ref bean="sessionFactorySqlServer"/></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--        </bean>-->
+		
+		<!-- AvdelingLoggDAO: Hibernate implementation -->        
+        <bean id="avdelingLoggDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingLoggDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		
+		
+	
+	<!-- AvdelingAvregningBelopDAO: Hibernate implementation -->        
+        <bean id="avdelingAvregningBelopDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingAvregningBelopDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+	<!-- AvdelingAvregningDAO: Hibernate implementation -->        
+        <bean id="avdelingAvregningDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingAvregningDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+
+	<!-- AvregningPkgDAO: Hibernate implementation -->        
+        <bean id="avregningPkgDAO" class="no.ica.fraf.dao.hibernate.pkg.AvregningPkgDAOHibernate"> 
+    	<property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="test" value="true"/>
+		</bean>
+	<!-- TotalAvregningVDAO: Hibernate implementation -->        
+        <bean id="totalAvregningVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.TotalAvregningVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+	
+	<bean id="frafE2bPkgDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.dao.hibernate.pkg.FrafE2bPkgDAOHibernate"
+				autowire="byName">
+				<property name="test" value="true"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- AvdelingAvregningImportDAO: Hibernate implementation -->        
+        <bean id="avdelingAvregningImportDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingAvregningImportDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+	<bean id="fakturaTekstVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaTekstVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+	<bean id="speiletBetingelseMangelVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SpeiletBetingelseMangelVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		
+		<bean id="chainDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapChainDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean>
+		<bean id="regionDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapRegionDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean>
+		<bean id="sapLegalOwnerDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapLegalOwnerDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean>
+		<bean id="districtManagerDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapDistrictManagerDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean>
+		<!-- FakturaVDAO: Hibernate implementation -->        
+        <bean id="fakturaVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.FakturaVStandaloneDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="nyAvdelingVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.NyAvdelingVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="sapSaleDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.SapSaleDAOHibernate" autowire="byName">
+            </bean>
+        </property>
+		</bean>
+		<bean id="avdelingOversiktVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingOversiktVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="avdelingBetingelseVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingBetingelseVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="avdelingMangelVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingMangelVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="avdelingOmsetningVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingOmsetningVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+		<bean id="avdelingSikkerhetVDAO" parent="txProxyTemplate"> 
+    	<property name="target">
+            <bean class="no.ica.fraf.dao.hibernate.AvdelingSikkerhetVDAOHibernate" autowire="byName"/>
+        </property>
+		</bean>
+  </beans>

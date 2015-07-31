@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.FakturaLinje" 
+    table="FAKTURA_LINJE_TEST"
+>
+
+    <id
+        name="fakturaLinjeId"
+        type="java.lang.Integer"
+        column="FAKTURA_LINJE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_faktura_linje_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="22"
+    />
+    <property
+        name="linjeBeskrivelse"
+        type="java.lang.String"
+        column="LINJE_BESKRIVELSE"
+        length="255"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="38"
+    />
+    <property
+        name="omsetningBelop"
+        type="java.math.BigDecimal"
+        column="OMSETNING_BELOP"
+        length="38"
+    />
+    <property
+        name="avregningBelop"
+        type="java.math.BigDecimal"
+        column="AVREGNING_BELOP"
+        length="38"
+    />
+    <property
+        name="mvaKode"
+        type="java.lang.String"
+        column="MVA_KODE"
+        length="3"
+    />
+    <property
+        name="mvaBelop"
+        type="java.math.BigDecimal"
+        column="MVA_BELOP"
+        length="38"
+    />
+    <property
+        name="grunnlagBelop"
+        type="java.math.BigDecimal"
+        column="GRUNNLAG_BELOP"
+        length="38"
+    />
+    <property
+        name="totalBelop"
+        type="java.math.BigDecimal"
+        column="TOTAL_BELOP"
+        length="38"
+    />
+    <property
+        name="fastBelop"
+        type="java.math.BigDecimal"
+        column="FAST_BELOP"
+        length="22"
+    />
+	<property
+        name="periode"
+        type="java.lang.String"
+        column="PERIODE"
+        length="5"
+    />
+	<property
+        name="reversert"
+        type="java.lang.Integer"
+        column="REVERSERT"
+        length="32"
+    />
+    <property
+        name="prosjekt"
+        type="java.lang.String"
+        column="PROSJEKT"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to BetingelseType -->
+    <many-to-one
+        name="betingelseType"
+        class="no.ica.fraf.model.BetingelseType"
+        not-null="true"
+    >
+        <column name="BETINGELSE_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Faktura -->
+    <many-to-one
+        name="faktura"
+        class="no.ica.fraf.model.Faktura"
+        not-null="true"
+    >
+        <column name="FAKTURA_ID" />
+    </many-to-one>
+	<many-to-one
+        name="avdelingBetingelse"
+        class="no.ica.fraf.model.AvdelingBetingelse"
+        not-null="true"
+    >
+        <column name="AVDELING_BETINGELSE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

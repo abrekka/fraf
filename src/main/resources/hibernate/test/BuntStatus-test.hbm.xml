@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BuntStatus" 
+    table="BUNT_STATUS_TEST"
+>
+
+    <id
+        name="buntStatusId"
+        type="java.lang.Integer"
+        column="BUNT_STATUS_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_bunt_status_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="kode"
+        type="java.lang.String"
+        column="KODE"
+        length="10"
+    />
+    <property
+        name="beskrivelse"
+        type="java.lang.String"
+        column="BESKRIVELSE"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<!-- EepHeadLoadDAO: Hibernate implementation -->
+	<bean id="eepHeadLoadDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.dao.hibernate.EepHeadLoadDAOHibernate"
+				autowire="byName">
+				<property name="sessionFactory">
+					<ref bean="sessionFactory"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- EepHeadDAO: Hibernate implementation -->
+	<bean id="eepHeadDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.dao.hibernate.EepHeadDAOHibernate"
+				autowire="byName">
+				<property name="sessionFactory">
+					<ref bean="sessionFactory"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!--bean id="applUserElfaDAO" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.dao.hibernate.ApplUserElfaDAOHibernate"
+				autowire="byName">
+				<property name="sessionFactory">
+					<ref bean="sessionFactory"/>
+				</property>
+			</bean>
+		</property>
+	</bean-->
+	<!-- EepImportPkgDAO: Hibernate implementation -->
+	<bean id="eepImportPkgDAO"
+		class="no.ica.elfa.dao.hibernate.pkg.EepImportPkgDAOHibernate">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="test" value="true"/>
+	</bean>
+	<!-- InvoicePkgDAO: Hibernate implementation -->
+	<bean id="invoicePkgDAO"
+		class="no.ica.elfa.dao.hibernate.pkg.InvoicePkgDAOHibernate">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="test" value="true"/>
+	</bean>
+	
+	<!-- BatchDAO: Hibernate implementation -->
+	<!--bean id="batchDAO" class="no.ica.elfa.dao.hibernate.BatchDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean-->
+	
+	<!-- InvoiceDAO: Hibernate implementation -->
+	<bean id="invoiceDAO" class="no.ica.elfa.dao.hibernate.InvoiceDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- Rik2StoreVDAO: Hibernate implementation -->
+	<!--bean id="rik2StoreVDAO"
+		class="no.ica.elfa.dao.hibernate.Rik2StoreVDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean-->
+	
+	
+	<!-- BatchStatusDAO: Hibernate implementation -->
+	<!--bean id="batchStatusDAO"
+		class="no.ica.elfa.dao.hibernate.BatchStatusDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean-->
+	
+	<!-- E2bPkgDAO: Hibernate implementation -->
+	<bean id="e2bPkgDAO" class="no.ica.elfa.dao.hibernate.pkg.E2bPkgDAOHibernate">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="test" value="true"/>
+	</bean>
+	<!-- InvoiceItemDAO: Hibernate implementation -->
+	<bean id="invoiceItemDAO"
+		class="no.ica.elfa.dao.hibernate.InvoiceItemDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!-- ApplParamElfaDAO: Hibernate implementation -->
+	<!--bean id="applParamElfaDAO"
+		class="no.ica.elfa.dao.hibernate.ApplParamElfaDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean-->
+	
+	<!-- CreditImportDAO: Hibernate implementation -->
+	<bean id="creditImportDAO"
+		class="no.ica.elfa.dao.hibernate.CreditImportDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!-- ArticleCommissionDAO: Hibernate implementation -->
+	<bean id="articleCommissionDAO"
+		class="no.ica.elfa.dao.hibernate.ArticleCommissionDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!-- InvoiceItemVDAO: Hibernate implementation -->
+	<bean id="invoiceItemVDAO"
+		class="no.ica.elfa.dao.hibernate.InvoiceItemVDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<!-- SupplierAccountDAO: Hibernate implementation -->
+	<bean id="supplierAccountDAO"
+		class="no.ica.elfa.dao.hibernate.SupplierAccountDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<!-- FileSequenceDAO: Hibernate implementation -->
+	<bean id="elfaFileSequenceDAO"
+		class="no.ica.elfa.dao.hibernate.ElfaFileSequenceDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="test" value="true"/>
+	</bean>
+	<!-- ReconcilVDAO: Hibernate implementation -->
+	<bean id="reconcilVDAO"
+		class="no.ica.elfa.dao.hibernate.ReconcilVDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="eepLineItemDAO"
+		class="no.ica.elfa.dao.hibernate.EepLineItemDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+</beans>

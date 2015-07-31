@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BuntFeil" 
+    table="BUNT_FEIL_TEST"
+>
+
+    <id
+        name="buntFeilId"
+        type="java.lang.Integer"
+        column="BUNT_FEIL_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_bunt_feil_TEST</param>
+        </generator>
+    </id>
+
+	<property
+        name="kommentar"
+        type="java.lang.String"
+        column="KOMMENTAR"
+        length="255"
+    />
+
+    <!-- Associations -->
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+		lazy="proxy"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="feilKode"
+        class="no.ica.fraf.model.FeilKode"
+        not-null="true"
+    >
+        <column name="FEIL_KODE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

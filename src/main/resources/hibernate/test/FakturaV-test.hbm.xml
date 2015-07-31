@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.FakturaV" 
+    table="FAKTURA_V_TEST"
+>
+
+    <id
+        name="fakturaId"
+        type="java.lang.Integer"
+        column="FAKTURA_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="mottakerNavn"
+        type="java.lang.String"
+        column="MOTTAKER_NAVN"
+        length="30"
+    />
+    <property
+        name="adresse1"
+        type="java.lang.String"
+        column="ADRESSE1"
+        length="30"
+    />
+    <property
+        name="adresse2"
+        type="java.lang.String"
+        column="ADRESSE2"
+        length="30"
+    />
+    <property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="22"
+    />
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="32"
+    />
+    <property
+        name="juridiskNavn"
+        type="java.lang.String"
+        column="JURIDISK_NAVN"
+        length="30"
+    />
+    <property
+        name="fakturaDato"
+        type="java.util.Date"
+        column="FAKTURA_DATO"
+        length="10"
+    />
+    <property
+        name="forfallDato"
+        type="java.util.Date"
+        column="FORFALL_DATO"
+        length="10"
+    />
+    <property
+        name="fakturaNr"
+        type="java.lang.String"
+        column="FAKTURA_NR"
+        length="30"
+    />
+    
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="30"
+    />
+    
+    <!--property
+        name="linjeBeskrivelse"
+        type="java.lang.String"
+        column="LINJE_BESKRIVELSE"
+        length="30"
+    /-->
+    
+    <!--property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="30"
+    /-->
+    
+    <!--property
+        name="grunnlagBelop"
+        type="java.math.BigDecimal"
+        column="GRUNNLAG_BELOP"
+        length="30"
+    /-->
+    
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="30"
+    />
+    
+    <property
+        name="mvaBelop"
+        type="java.math.BigDecimal"
+        column="MVA_BELOP"
+        length="30"
+    />
+    
+    <property
+        name="totalBelop"
+        type="java.math.BigDecimal"
+        column="TOTAL_BELOP"
+        length="30"
+    />
+    
+    <property
+        name="buntId"
+        type="java.lang.Integer"
+        column="BUNT_ID"
+        length="30"
+    />
+    
+    <property
+        name="fakturaTittel"
+        type="java.lang.String"
+        column="FAKTURA_TITTEL"
+        length="255"
+    />
+    
+    <property
+        name="kid"
+        type="java.lang.String"
+        column="KID"
+        length="50"
+    />
+    
+    <property
+        name="bokfSelskap"
+        type="java.lang.String"
+        column="BOKF_SELSKAP"
+        length="50"
+    />
+    
+    <property
+        name="fakturertAv"
+        type="java.lang.String"
+        column="FAKTURERT_AV"
+        length="61"
+    />
+    
+    
+    <property
+        name="avtalenr"
+        type="java.lang.String"
+        column="AVTALENR"
+        length="61"
+    />
+    
+    <property
+        name="icaKontoTekst"
+        type="java.lang.String"
+        column="ICA_KONTO_TEKST"
+        length="61"
+    />
+    <property
+        name="avsenderNavn"
+        type="java.lang.String"
+        column="AVSENDER_NAVN"
+        length="61"
+    />
+    
+    <property
+        name="avsenderAdresse1"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE1"
+        length="61"
+    />
+    <property
+        name="avsenderAdresse2"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE2"
+        length="61"
+    />
+    <property
+        name="avsenderAdresse3"
+        type="java.lang.String"
+        column="AVSENDER_ADRESSE3"
+        length="61"
+    />
+    <property
+        name="avsenderTelefon"
+        type="java.lang.String"
+        column="AVSENDER_TELEFON"
+        length="61"
+    />
+    <property
+        name="avsenderTelefax"
+        type="java.lang.String"
+        column="AVSENDER_TELEFAX"
+        length="61"
+    />
+    <property
+        name="avsenderOrgNr"
+        type="java.lang.String"
+        column="AVSENDER_ORG_NR"
+        length="61"
+    />
+    <property
+        name="avsenderKontonr"
+        type="java.lang.String"
+        column="AVSENDER_KONTONR"
+        length="61"
+    />
+    <property
+        name="harSatsLinje"
+        type="java.lang.Integer"
+        column="HAR_SATS_LINJE"
+        length="61"
+    />
+    
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

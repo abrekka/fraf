@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.InvoiceItemV" 
+    table="elfa_INVOICE_ITEM_V_TEST"
+>
+
+    <id
+        name="invoiceItemId"
+        type="java.math.BigDecimal"
+        column="INVOICE_ITEM_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="invoiceId"
+        type="java.math.BigDecimal"
+        column="INVOICE_ID"
+        length="32"
+    />
+    <property
+        name="storeName"
+        type="java.lang.String"
+        column="STORE_NAME"
+        length="255"
+    />
+    <property
+        name="juridiskEierNavn"
+        type="java.lang.String"
+        column="JURIDISK_EIER_NAVN"
+        length="255"
+    />
+   
+    <property
+        name="adr1"
+        type="java.lang.String"
+        column="ADR_1"
+        length="255"
+    />
+    <property
+        name="adr2"
+        type="java.lang.String"
+        column="ADR_2"
+        length="255"
+    />
+    <property
+        name="postnr"
+        type="java.lang.Integer"
+        column="POSTNR"
+        length="4"
+    />
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="255"
+    />
+    
+	<property
+        name="batchId"
+        type="java.lang.Integer"
+        column="BATCH_ID"
+        length="32"
+    />
+	<property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="32"
+    />
+	<property
+        name="invoiceDate"
+        type="java.util.Date"
+        column="INVOICE_DATE"
+        length="32"
+    />
+	<property
+        name="dueDate"
+        type="java.util.Date"
+        column="DUE_DATE"
+        length="32"
+    />
+	<property
+        name="invoiceNr"
+        type="java.math.BigDecimal"
+        column="INVOICE_NR"
+        length="32"
+    />
+	<property
+        name="userName"
+        type="java.lang.String"
+        column="USER_NAME"
+        length="100"
+    />
+	<property
+        name="kidNr"
+        type="java.lang.String"
+        column="KID_NR"
+        length="100"
+    />
+	<property
+        name="amountTotal"
+        type="java.math.BigDecimal"
+        column="AMOUNT_TOTAL"
+        length="32"
+    />
+	<property
+        name="vatAmount"
+        type="java.math.BigDecimal"
+        column="VAT_AMOUNT"
+        length="32"
+    />
+	<property
+        name="amountInvoice"
+        type="java.math.BigDecimal"
+        column="AMOUNT_INVOICE"
+        length="32"
+    />
+	<property
+        name="articleNo"
+        type="java.math.BigDecimal"
+        column="ARTICLE_NO"
+        length="32"
+    />
+	<property
+        name="articleName"
+        type="java.lang.String"
+        column="ARTICLE_NAME"
+        length="100"
+    />
+	<property
+        name="numberOfArticles"
+        type="java.lang.Integer"
+        column="NUMBER_OF_ARTICLES"
+        length="32"
+    />
+	<property
+        name="articlePrice"
+        type="java.math.BigDecimal"
+        column="ARTICLE_PRICE"
+        length="32"
+    />
+	<property
+        name="itemAmountTotal"
+        type="java.math.BigDecimal"
+        column="ITEM_AMOUNT_TOTAL"
+        length="32"
+    />
+	<property
+        name="lineCommissionAmountSto"
+        type="java.math.BigDecimal"
+        column="LINE_COMMISSION_AMOUNT_STO"
+        length="32"
+    />
+	<property
+        name="itemVatAmount"
+        type="java.math.BigDecimal"
+        column="ITEM_VAT_AMOUNT"
+        length="32"
+    />
+	<property
+        name="invoiceAmountItem"
+        type="java.math.BigDecimal"
+        column="INVOICE_AMOUNT_ITEM"
+        length="32"
+    />
+	<property
+        name="commissionAmountSto"
+        type="java.math.BigDecimal"
+        column="COMMISSION_AMOUNT_STO"
+        length="32"
+    />
+	<property
+        name="invoiceItemDescription"
+        type="java.lang.String"
+        column="INVOICE_ITEM_DESCRIPTION"
+        length="32"
+    />
+	<property
+        name="kid"
+        type="java.lang.Integer"
+        column="KID"
+        length="32"
+    />
+	<property
+        name="period"
+        type="java.lang.String"
+        column="PERIOD"
+        length="255"
+    />
+   
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Invoice -->
+   
+</class>
+</hibernate-mapping>

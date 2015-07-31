@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingBetingelse" 
+    table="AVDELING_BETINGELSE_TEST"
+>
+
+    <id
+        name="avdelingBetingelseId"
+        type="java.lang.Integer"
+        column="AVDELING_BETINGELSE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avdeling_betingelse_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="fraDato"
+        type="java.sql.Timestamp"
+        column="FRA_DATO"
+        length="7"
+        not-null="true"
+    />
+    <property
+        name="tilDato"
+        type="java.sql.Timestamp"
+        column="TIL_DATO"
+        length="7"
+        not-null="true"
+    />
+    <property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="22"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="22"
+    />
+    <property
+        name="tekst"
+        type="java.lang.String"
+        column="TEKST"
+        length="50"
+    />
+    
+    <property
+        name="speilet"
+        type="java.lang.Integer"
+        column="SPEILET"
+        length="32"
+    />
+    
+    <property
+        name="fakturaTekst"
+        type="java.lang.String"
+        column="FAKTURA_TEKST"
+        length="1000"
+    />
+    <property
+        name="fakturaTekstRek"
+        type="java.lang.Integer"
+        column="FAKTURA_TEKST_REK"
+        length="32"
+    />
+    <property
+        name="satsFraBelop"
+        type="java.math.BigDecimal"
+        column="SATS_FRA_BELOP"
+        length="22"
+    />
+    <property
+        name="satsTilBelop"
+        type="java.math.BigDecimal"
+        column="SATS_TIL_BELOP"
+        length="22"
+    />
+	<property
+        name="konto"
+        type="java.lang.String"
+        column="KONTO"
+        length="20"
+    />
+	<property
+        name="bokfAvdeling"
+        type="java.lang.String"
+        column="BOKF_AVDELING"
+        length="20"
+    />
+	<property
+        name="prosjekt"
+        type="java.lang.String"
+        column="PROSJEKT"
+        length="20"
+    />
+    <property
+        name="slettet"
+        type="java.lang.Integer"
+        column="SLETTET"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to BetingelseType -->
+    <many-to-one
+        name="betingelseType"
+        class="no.ica.fraf.model.BetingelseType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="BETINGELSE_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningFrekvensType"
+        class="no.ica.fraf.model.AvregningFrekvensType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVREGNING_FREKVENS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningType"
+        class="no.ica.fraf.model.AvregningType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVREGNING_TYPE_ID" />
+    </many-to-one>
+    
+   
+
+	<many-to-one
+        name="bokfSelskap"
+        class="no.ica.fraf.model.BokfSelskap"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="SELSKAP_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="false"
+        lazy="proxy"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+    
+    <set
+        name="speiletBetingelses"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_BETINGELSE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.SpeiletBetingelse"
+        />
+    </set>
+	<many-to-one
+        name="mva"
+        class="no.ica.fraf.model.Mva"
+        not-null="false"
+        lazy="proxy"
+    >
+        <column name="MVA_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SapSale" 
+    table="SAP_SALE_TEST"
+>
+
+    <id
+        name="saleId"
+        type="java.lang.Integer"
+        column="SALE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_sap_sale_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="year"
+        type="java.lang.Integer"
+        column="YEAR"
+        length="32"
+    />
+    <property
+        name="periode"
+        type="java.lang.Integer"
+        column="PERIODE"
+        length="32"
+    />
+     <property
+        name="departmentNr"
+        type="java.lang.Integer"
+        column="DEPARTMENT_NR"
+        length="32"
+    />
+    <property
+        name="sale"
+        type="java.math.BigDecimal"
+        column="SALE"
+        length="32"
+    />
+    <property
+        name="budget"
+        type="java.math.BigDecimal"
+        column="BUDGET"
+        length="32"
+    />
+</class>
+</hibernate-mapping>

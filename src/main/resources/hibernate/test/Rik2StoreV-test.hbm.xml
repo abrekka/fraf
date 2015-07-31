@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.Rik2StoreV" 
+    table="RIK2_STORE_V_TEST"
+>
+		<id
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+    >
+        <generator class="assigned" />
+    </id>
+
+        <property 
+            name="selskap" 
+            column="SELSKAP" 
+            type="java.lang.String"
+            length="2"
+        />
+        <property 
+            name="navn" 
+            column="NAVN" 
+            type="java.lang.String"
+            length="50"
+        />
+        <property 
+            name="adr1" 
+            column="ADR_1" 
+            type="java.lang.String"
+            length="30"
+        />
+        <property 
+            name="adr2" 
+            column="ADR_2" 
+            type="java.lang.String"
+            length="30"
+        />
+        <property 
+            name="adr3" 
+            column="ADR_3" 
+            type="java.lang.String"
+            length="30"
+        />
+        <property 
+            name="postnr" 
+            column="POSTNR" 
+            type="java.lang.Integer"
+            length="6"
+        />
+        <property 
+            name="poststed" 
+            column="POSTSTED" 
+            type="java.lang.String"
+            length="25"
+        />
+        <property 
+            name="ansvarlig" 
+            column="ANSVARLIG" 
+            type="java.lang.String"
+            length="30"
+        />
+        <property 
+            name="region" 
+            column="REGION" 
+            type="java.lang.Integer"
+            length="4"
+        />
+        <property 
+            name="kjede" 
+            column="KJEDE" 
+            type="java.lang.Integer"
+            length="2"
+        />
+        
+        <property 
+            name="driftsleder" 
+            column="DRIFTSLEDER" 
+            type="java.lang.Integer"
+            length="4"
+        />
+        
+        <property 
+            name="dtStart" 
+            column="DT_START" 
+            type="java.util.Date"
+            length="4"
+        />
+        <property 
+            name="dtSlutt" 
+            column="DT_SLUTT" 
+            type="java.util.Date"
+            length="7"
+        />
+        <property 
+            name="avtaletype" 
+            column="AVTALETYPE" 
+            type="java.lang.String"
+            length="2"
+        />
+        
+        <property 
+            name="lokasjonsnr" 
+            column="LOKASJONSNR" 
+            type="java.math.BigDecimal"
+            length="14"
+        />
+        
+        <property 
+            name="juridiskEier" 
+            column="JURIDISK_EIER" 
+            type="java.lang.Integer"
+            length="14"
+        />
+        
+        <property 
+            name="orgNr" 
+            column="ORG_NR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        
+        <property 
+            name="datasetConcorde" 
+            column="DATASET_CONCORDE" 
+            type="java.lang.String"
+            length="10"
+        />
+	<property 
+            name="juridiskEierNavn" 
+            column="JURIDISK_EIER_navn" 
+            type="java.lang.String"
+            length="255"
+        />
+	<property 
+            name="juridiskEierAdr1" 
+            column="JURIDISK_EIER_ADR1" 
+            type="java.lang.String"
+            length="255"
+        />
+	<property 
+            name="juridiskEierPostnr" 
+            column="JURIDISK_EIER_POSTNR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+	<property 
+            name="juridiskEierPoststed" 
+            column="JURIDISK_EIER_POSTSTED" 
+            type="java.lang.String"
+            length="255"
+        />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

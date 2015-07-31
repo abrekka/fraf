@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvregningBasisType" 
+    table="AVREGNING_BASIS_TYPE"
+>
+
+    <id
+        name="avregningBasisTypeId"
+        type="java.lang.Integer"
+        column="AVREGNING_BASIS_TYPE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avregning_basis_type</param>
+        </generator>
+    </id>
+
+    <property
+        name="avregningBasisTypeKode"
+        type="java.lang.String"
+        column="AVREGNING_BASIS_TYPE_KODE"
+        length="3"
+    />
+    
+    <property
+        name="avregningBasisTypeTxt"
+        type="java.lang.String"
+        column="AVREGNING_BASIS_TYPE_TXT"
+        length="3"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="true">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Bunt" 
+    table="BUNT"
+>
+
+    <id
+        name="buntId"
+        type="java.lang.Integer"
+        column="BUNT_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_bunt</param>
+        </generator>
+    </id>
+
+    <property
+        name="opprettetDato"
+        type="java.sql.Timestamp"
+        column="OPPRETTET_DATO"
+        length="7"
+    />
+    <property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+        length="22"
+    />
+    <property
+        name="fraPeriode"
+        type="java.lang.Integer"
+        column="FRA_PERIODE"
+        length="22"
+    />
+    <property
+        name="tilPeriode"
+        type="java.lang.Integer"
+        column="TIL_PERIODE"
+        length="22"
+    />
+    <property
+        name="fraAvdnr"
+        type="java.lang.Integer"
+        column="FRA_AVDNR"
+        length="22"
+    />
+    <property
+        name="tilAvdnr"
+        type="java.lang.Integer"
+        column="TIL_AVDNR"
+        length="22"
+    />
+    <property
+        name="regionId"
+        type="java.lang.Integer"
+        column="REGION_ID"
+        length="22"
+    />
+	 <property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        length="255"
+    />
+	<property
+        name="fraDato"
+        type="java.util.Date"
+        column="FRA_DATO"
+        length="32"
+    />
+	<property
+        name="tilDato"
+        type="java.util.Date"
+        column="TIL_DATO"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to RegnskapKladd -->
+    <!-- bi-directional one-to-many association to Faktura -->
+    <set
+        name="fakturas"
+        lazy="true"
+        inverse="true"
+		cascade="persist,merge,save-update"
+    >
+        <key>
+            <column name="BUNT_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Faktura"
+        />
+    </set>
+    
+    <many-to-one
+        name="applUser"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="false"
+		lazy="proxy"
+    >
+        <column name="USER_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="buntType"
+        class="no.ica.fraf.model.BuntType"
+        not-null="false"
+    >
+        <column name="BUNT_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="buntStatus"
+        class="no.ica.fraf.model.BuntStatus"
+        not-null="false"
+    >
+        <column name="BUNT_STATUS_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="betingelseGruppe"
+        class="no.ica.fraf.model.BetingelseGruppe"
+        not-null="false"
+    >
+        <column name="BETINGELSE_GRUPPE_ID" />
+    </many-to-one>
+    
+    
+	
+	<set
+        name="avdelingAvregningImports"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="BUNT_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingAvregningImport"
+        />
+    </set>
+	<set
+        name="avdelingBetingelses"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="BUNT_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingBetingelse"
+        />
+    </set>
+
+	
+
+</class>
+</hibernate-mapping>

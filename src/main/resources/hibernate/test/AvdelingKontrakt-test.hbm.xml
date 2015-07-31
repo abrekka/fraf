@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingKontrakt" 
+    table="AVDELING_KONTRAKT_TEST"
+>
+
+    <id
+        name="avdelingKontraktId"
+        type="java.lang.Integer"
+        column="AVDELING_KONTRAKT_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avdeling_kontrakt_TEST</param>
+        </generator>
+    </id>
+
+    
+    <property
+        name="fraDato"
+        type="java.sql.Timestamp"
+        column="FRA_DATO"
+        length="7"
+    />
+    <property
+        name="tilDato"
+        type="java.sql.Timestamp"
+        column="TIL_DATO"
+        length="7"
+    />
+    
+    <property
+        name="underskriftDato"
+        type="java.util.Date"
+        column="UNDERSKRIFT_DATO"
+        length="10"
+    />
+    
+    
+    
+    <!--property
+        name="opprettetDato"
+        type="java.sql.Timestamp"
+        column="OPPRETTET_DATO"
+        length="7"
+    /-->
+    <!--property
+        name="opprettetAv"
+        type="java.lang.String"
+        column="OPPRETTET_AV"
+        length="20"
+    /-->
+    <!--property
+        name="endretDato"
+        type="java.sql.Timestamp"
+        column="ENDRET_DATO"
+        length="7"
+    /-->
+    <!--property
+        name="endretAv"
+        type="java.lang.String"
+        column="ENDRET_AV"
+        length="20"
+    /-->
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="kontraktType"
+        class="no.ica.fraf.model.KontraktType"
+        not-null="true"
+    >
+        <column name="KONTRAKT_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningType"
+        class="no.ica.fraf.model.AvregningType"
+        not-null="true"
+    >
+        <column name="AVREGNING_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningBasisType"
+        class="no.ica.fraf.model.AvregningBasisType"
+        not-null="true"
+    >
+        <column name="AVREGNING_BASIS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningFrekvensType"
+        class="no.ica.fraf.model.AvregningFrekvensType"
+        not-null="true"
+    >
+        <column name="AVREGNING_FREKVENS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="fornyelseType"
+        class="no.ica.fraf.model.FornyelseType"
+        not-null="true"
+    >
+        <column name="FORNYELSE_TYPE_ID" />
+    </many-to-one>
+    
+    <!--many-to-one
+        name="opprettetAv"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="true"
+    >
+        <column name="OPPRETTET_AV" />
+    </many-to-one-->
+    
+    <!--many-to-one
+        name="endretAv"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="true"
+    >
+        <column name="ENDRET_AV" />
+    </many-to-one-->
+
+</class>
+</hibernate-mapping>

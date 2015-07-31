@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.ApplParamElfa" 
+    table="APPL_PARAM"
+>
+
+    <id
+        name="paramId"
+        type="java.lang.Integer"
+        column="PARAM_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+	<property
+        name="paramName"
+        type="java.lang.String"
+        column="PARAM_NAME"
+        length="255"
+    />
+    <property
+        name="paramValue"
+        type="java.lang.String"
+        column="PARAM_VALUE"
+        length="2000"
+    />
+    <property
+        name="paramDescr"
+        type="java.lang.String"
+        column="PARAM_DESCR"
+        length="255"
+    />
+    <property
+        name="userEdit"
+        type="java.lang.String"
+        column="USER_EDIT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="applParamGroupId"
+        type="java.lang.String"
+        column="APPL_PARAM_GROUP_ID"
+        length="3"
+    />
+    <property
+        name="userOverride"
+        type="java.lang.String"
+        column="USER_OVERRIDE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

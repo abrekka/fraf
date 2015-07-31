@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingMangelV" 
+    table="AVDELING_MANGEL_V"
+>
+
+	<composite-id name="avdelingMangelVPK" class="no.ica.fraf.model.AvdelingMangelVPK">
+        <key-property 
+            name="avdnr" 
+            column="AVDNR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="mangelBeskrivelse" 
+            column="MANGEL_BESKRIVELSE" 
+            type="java.lang.String"
+            length="50"
+        />
+      </composite-id>
+
+
+    <property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        unique="true"
+        length="100"
+    />
+    <property
+        name="kommentar"
+        type="java.lang.String"
+        column="KOMMENTAR"
+        length="255"
+    />
+	<property
+        name="statusTxt"
+        type="java.lang.String"
+        column="STATUS_TXT"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

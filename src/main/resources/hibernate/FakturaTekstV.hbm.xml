@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.FakturaTekstV" 
+    table="FAKTURA_TEKST_V"
+>
+
+  <composite-id name="fakturaTekstVPK" class="no.ica.fraf.model.FakturaTekstVPK">
+        <key-property 
+            name="fakturaId"
+        type="java.lang.Integer"
+        column="FAKTURA_ID"
+        />
+        <key-property 
+            name="fakturaTekst"
+        type="java.lang.String"
+        column="FAKTURA_TEKST"
+        length="255"
+        />
+        
+        
+    </composite-id>    
+<property 
+            name="fakturaTekstRek"
+        type="java.lang.Integer"
+        column="FAKTURA_TEKST_REK"
+        length="32"
+        />
+    
+
+</class>
+</hibernate-mapping>

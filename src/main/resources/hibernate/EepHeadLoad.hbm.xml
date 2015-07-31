@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.EepHeadLoad" 
+    table="ELFA_EEP_HEAD_LOAD"
+>
+
+    <id
+        name="sequenceNumber"
+        type="java.lang.Integer"
+        column="SEQUENCE_NUMBER"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="recordType"
+        type="java.lang.String"
+        column="RECORD_TYPE"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="fileType"
+        type="java.lang.String"
+        column="FILE_TYPE"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="fileDate"
+        type="java.util.Date"
+        column="FILE_DATE"
+        length="7"
+    />
+    <property
+        name="periodStart"
+        type="java.util.Date"
+        column="PERIOD_START"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="periodEnd"
+        type="java.util.Date"
+        column="PERIOD_END"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="numberOfRecords"
+        type="java.lang.Integer"
+        column="NUMBER_OF_RECORDS"
+        length="22"
+    />
+    <property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EepLineItemLoad -->
+    <set
+        name="eepLineItemLoads"
+        lazy="false"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="SEQUENCE_NUMBER" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.EepLineItemLoad"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.ApplParam" 
+    table="APPL_PARAM_TEST"
+>
+
+    <id
+        name="paramId"
+        type="java.lang.Integer"
+        column="PARAM_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_appl_param_TEST</param>
+        </generator>
+    </id>
+
+	<property
+        name="paramName"
+        type="java.lang.String"
+        column="PARAM_NAME"
+        length="35"
+    />
+    <property
+        name="paramValue"
+        type="java.lang.String"
+        column="PARAM_VALUE"
+        length="2000"
+    />
+    <property
+        name="paramDescr"
+        type="java.lang.String"
+        column="PARAM_DESCR"
+        length="255"
+    />
+	<property
+        name="systemName"
+        type="java.lang.String"
+        column="SYSTEM_NAME"
+        length="255"
+    />
+    <property
+        name="systemType"
+        type="java.lang.Integer"
+        column="SYSTEM_TYPE"
+        length="32"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

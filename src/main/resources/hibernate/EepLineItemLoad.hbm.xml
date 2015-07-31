@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.EepLineItemLoad" 
+    table="ELFA_EEP_LINE_ITEM_LOAD"
+>
+
+    <composite-id>
+        <key-property 
+            name="recordType" 
+            column="RECORD_TYPE" 
+            type="java.lang.String"
+            length="3"
+        />
+        <key-property 
+            name="fileType" 
+            column="FILE_TYPE" 
+            type="java.lang.String"
+            length="3"
+        />
+        <key-property 
+            name="fromDate" 
+            column="FROM_DATE" 
+            type="java.sql.Timestamp"
+            length="7"
+        />
+        <key-property 
+            name="toDate" 
+            column="TO_DATE" 
+            type="java.sql.Timestamp"
+            length="7"
+        />
+        <key-property 
+            name="storeNumber" 
+            column="STORE_NUMBER" 
+            type="java.lang.Integer"
+            length="22"
+        />
+        <key-property 
+            name="supplierNumber" 
+            column="SUPPLIER_NUMBER" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="articleNumber" 
+            column="ARTICLE_NUMBER" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="articleDescription" 
+            column="ARTICLE_DESCRIPTION" 
+            type="java.lang.String"
+            length="30"
+        />
+        <key-property 
+            name="numberOfSoldVouchers" 
+            column="NUMBER_OF_SOLD_VOUCHERS" 
+            type="java.lang.Integer"
+            length="22"
+        />
+        <key-property 
+            name="articleOutPrice" 
+            column="ARTICLE_OUT_PRICE" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="createdDate" 
+            column="CREATED_DATE" 
+            type="java.sql.Timestamp"
+            length="7"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to EepHeadLoad -->
+    <many-to-one
+        name="eepHeadLoad"
+        class="no.ica.elfa.model.EepHeadLoad"
+        not-null="true"
+    >
+        <column name="SEQUENCE_NUMBER" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

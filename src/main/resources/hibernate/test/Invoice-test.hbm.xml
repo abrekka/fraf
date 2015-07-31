@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.Invoice" 
+    table="ELFA_INVOICE_TEST"
+>
+
+    <id
+        name="invoiceId"
+        type="java.lang.Integer"
+        column="INVOICE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="createdDate"
+        type="java.sql.Timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="storeNo"
+        type="java.lang.Integer"
+        column="STORE_NO"
+        length="22"
+    />
+    <property
+        name="invoiceDate"
+        type="java.sql.Timestamp"
+        column="INVOICE_DATE"
+        length="7"
+    />
+    <property
+        name="dueDate"
+        type="java.sql.Timestamp"
+        column="DUE_DATE"
+        length="7"
+    />
+    <property
+        name="vatAmount"
+        type="java.math.BigDecimal"
+        column="VAT_AMOUNT"
+        length="22"
+    />
+    <property
+        name="invoiceAmountSto"
+        type="java.math.BigDecimal"
+        column="INVOICE_AMOUNT_STO"
+        length="22"
+    />
+    <property
+        name="commissionAmountSto"
+        type="java.math.BigDecimal"
+        column="COMMISSION_AMOUNT_STO"
+        length="22"
+    />
+    <property
+        name="commissionAmountSup"
+        type="java.math.BigDecimal"
+        column="COMMISSION_AMOUNT_SUP"
+        length="22"
+    />
+    <property
+        name="invoiceAmountSup"
+        type="java.math.BigDecimal"
+        column="INVOICE_AMOUNT_SUP"
+        length="22"
+    />
+    <property
+        name="fromDate"
+        type="java.sql.Timestamp"
+        column="FROM_DATE"
+        length="7"
+    />
+    <property
+        name="toDate"
+        type="java.sql.Timestamp"
+        column="TO_DATE"
+        length="7"
+    />
+    <property
+        name="amountTotal"
+        type="java.math.BigDecimal"
+        column="AMOUNT_TOTAL"
+        length="22"
+    />
+    <property
+        name="amountInvoice"
+        type="java.math.BigDecimal"
+        column="AMOUNT_INVOICE"
+        length="22"
+    />
+    <property
+        name="kidNr"
+        type="java.lang.String"
+        column="KID_NR"
+        length="21"
+    />
+    
+    <property
+        name="invoiceNr"
+        type="java.math.BigDecimal"
+        column="INVOICE_NR"
+        length="22"
+    />
+	<property
+        name="xmlGenerert"
+        type="java.util.Date"
+        column="XML_GENERERT"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to InvoiceItem -->
+    <set
+        name="invoiceItems"
+        lazy="true"
+		fetch="join"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="INVOICE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.InvoiceItem"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to Batch -->
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="BATCH_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="applUser"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="USER_ID" />
+    </many-to-one>
+
+	
+	<!--many-to-one
+        name="rik2StoreV"
+        class="no.ica.elfa.model.Rik2StoreV"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="STORE_NO" />
+    </many-to-one-->
+
+</class>
+</hibernate-mapping>

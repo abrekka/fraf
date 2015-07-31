@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingBetingelseV" 
+    table="AVD_BET_V_STANDALONE_TEST"
+>
+
+    <id
+        name="avdelingBetingelseId"
+        type="java.lang.Integer"
+        column="AVDELING_BETINGELSE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+	<property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        unique="true"
+        length="32"
+    />
+
+    <property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        unique="true"
+        length="50"
+    />
+    <property
+        name="betingelseNavn"
+        type="java.lang.String"
+        column="BETINGELSE_NAVN"
+        length="50"
+    />
+    <property
+        name="fraDato"
+        type="java.util.Date"
+        column="FRA_DATO"
+        length="10"
+    />
+    <property
+        name="tilDato"
+        type="java.util.Date"
+        column="TIL_DATO"
+        length="10"
+    />
+    <property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="32"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+    <property
+        name="avregningFrekvens"
+        type="java.lang.String"
+        column="AVREGNING_FREKVENS"
+        length="30"
+    />
+    <property
+        name="avregning"
+        type="java.lang.String"
+        column="AVREGNING"
+        length="30"
+    />
+    
+    <property
+        name="region"
+        type="java.lang.String"
+        column="REGION"
+        length="35"
+    />
+    <property
+        name="kjede"
+        type="java.lang.String"
+        column="KJEDE"
+        length="30"
+    />
+	<property
+        name="speilet"
+        type="java.lang.Integer"
+        column="SPEILET"
+        length="32"
+    />
+	<property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="50"
+    />
+	<property
+        name="kontraktType"
+        type="java.lang.String"
+        column="KONTRAKT_TYPE"
+        length="50"
+    />
+	<property
+        name="betingelseGruppeNavn"
+        type="java.lang.String"
+        column="BETINGELSE_GRUPPE_NAVN"
+        length="100"
+    />
+	<property
+        name="avregningBasisTypeTxt"
+        type="java.lang.String"
+        column="AVREGNING_BASIS_TYPE_TXT"
+        length="100"
+    />
+    
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<bean id="eepHeadLoadManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.EepHeadLoadManagerImpl">
+				<property name="eepHeadLoadDAO" ref="eepHeadLoadDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="eepHeadManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.EepHeadManagerImpl">
+				<property name="eepHeadDAO" ref="eepHeadDAO"/>
+				<property name="eepLineItemManager" ref="eepLineItemManager"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--bean id="applUserManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.ApplUserManagerImpl">
+				<property name="applUserElfaDAO" ref="applUserElfaDAO"/>
+			</bean>
+		</property>
+	</bean-->
+	
+	<!--bean id="batchManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.BatchManagerImpl">
+				<property name="batchDAO" ref="batchDAO"/>
+			</bean>
+		</property>
+	</bean-->
+	
+	<bean id="invoiceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.InvoiceManagerImpl">
+				<property name="invoiceDAO" ref="invoiceDAO"/>
+				<property name="buntDAO" ref="buntDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--bean id="rik2StoreVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.Rik2StoreVManagerImpl">
+				<property name="rik2StoreVDAO" ref="rik2StoreVDAO"/>
+			</bean>
+		</property>
+	</bean-->
+	
+	
+	<!--bean id="batchStatusManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.BatchStatusManagerImpl">
+				<property name="batchStatusDAO" ref="batchStatusDAO"/>
+			</bean>
+		</property>
+	</bean-->
+	
+	<bean id="e2bPkgManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.E2bPkgManagerImpl">
+				<property name="e2bPkgDAO" ref="e2bPkgDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="invoiceItemManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.InvoiceItemManagerImpl">
+				<property name="invoiceItemDAO" ref="invoiceItemDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="elfaBatchAction" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.gui.actions.ElfaBatchAction">
+				<!--property name="batchManager" ref="batchManager"/-->
+				<property name="invoiceManager" ref="invoiceManager"/>
+				<!--property name="rik2StoreVManager" ref="rik2StoreVManager"/-->
+				<!--property name="batchStatusManager" ref="batchStatusManager"/-->
+				<property name="e2bPkgManager" ref="e2bPkgManager"/>
+
+
+				<property name="invoiceItemVManager" ref="invoiceItemVManager"/>
+				<property name="bokfSelskapDAO" ref="bokfSelskapDAO"/>
+				<!--property name="applUserManager" ref="applUserManager"/-->
+				<!-- property name="eflowUsersVManager" ref="eflowUsersVManager"/> -->
+				<!--property name="applParamDAO" ref="applParamDAO"/-->
+			</bean>
+		</property>
+	</bean>
+	
+	<!--bean id="applParamManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.ApplParamManagerImpl">
+				<property name="applParamElfaDAO" ref="applParamElfaDAO"/>
+			</bean>
+		</property>
+	</bean-->
+	<bean id="creditImportManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.CreditImportManagerImpl">
+				<property name="creditImportDAO" ref="creditImportDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="articleCommissionManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.ArticleCommissionManagerImpl">
+				<property name="articleCommissionDAO" ref="articleCommissionDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="invoiceItemVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.InvoiceItemVManagerImpl">
+				<property name="invoiceItemVDAO" ref="invoiceItemVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="supplierAccountManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.SupplierAccountManagerImpl">
+				<property name="supplierAccountDAO" ref="supplierAccountDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="elfaFileSequenceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.ElfaFileSequenceManagerImpl">
+				<property name="fileSequenceDAO" ref="elfaFileSequenceDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="reconcilVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.ReconcilVManagerImpl">
+				<property name="reconcilVDAO" ref="reconcilVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="eepLineItemManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.elfa.service.impl.EepLineItemManagerImpl">
+				<property name="eepLineItemDAO" ref="eepLineItemDAO"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

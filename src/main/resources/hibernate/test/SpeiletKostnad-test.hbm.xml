@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SpeiletKostnad" 
+    table="SPEILET_KOSTNAD_TEST"
+>
+
+    <id
+        name="speiletKostnadId"
+        type="java.lang.Integer"
+        column="SPEILET_KOSTNAD_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_speilet_kostnad_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="fraDato"
+        type="java.util.Date"
+        column="FRA_DATO"
+        not-null="true"
+        length="10"
+    />
+    
+    <property
+        name="tilDato"
+        type="java.util.Date"
+        column="TIL_DATO"
+        not-null="true"
+        length="10"
+    />
+    
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+    
+    <property
+        name="fakturaPostId"
+        type="java.lang.Integer"
+        column="FAKTURA_POST_ID"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+  	<many-to-one
+        name="speiletBetingelse"
+        class="no.ica.fraf.model.SpeiletBetingelse"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="SPEILET_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="fakturaBunt"
+        class="no.ica.fraf.model.Bunt"
+		outer-join="true"
+    >
+        <column name="FAKTURA_BUNT_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="innlesBunt"
+        class="no.ica.fraf.model.Bunt"
+    >
+        <column name="INNLES_BUNT_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

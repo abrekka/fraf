@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.ApplUserType" 
+    table="APPL_USER_TYPE"
+>
+
+    <id
+        name="typeId"
+        type="java.lang.Integer"
+        column="TYPE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_user_type</param>
+        </generator>
+    </id>
+
+    <property
+        name="typeName"
+        type="java.lang.String"
+        column="TYPE_NAME"
+        not-null="true"
+        length="35"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,243 @@
+Ver. 0.0.1	
+	- Første release
+
+Ver. 0.0.2
+	- Lagt til mer logging
+	- Implementert fakturadialog
+	- Modifisert database
+	
+Ver. 0.0.3
+	- Import av betingelser
+	- Skrive ut fakturaer
+	- Fakturering
+	- Rulle tilbake bunt	
+	
+Ver. 0.0.4
+	- Implementert fakturautskrift
+	- Mulighet for flere fakturaer for samme periode	
+	
+Ver. 0.0.5
+	- Implementert innlesning av omsetning og budsjett
+	- Implementert kredittnota
+	- Gjort det mulig å endre opprettet dato
+	- Laget ny testdatabase test_	
+	
+Ver. 0.0.6
+	- Rettet feil som gjorde at betingelser som var like ikke ble vist	
+	
+Ver. 0.0.7
+	- Lagt inn sortering på fakturaer som ligger i en bunt.
+	- Implementert rapport Totaler betingelser	
+	
+Ver. 0.0.8
+	- Lagt inn bokføringsselskap på avdeling_betingelse
+	- Lagt til betingelse_gruppe_navn på faktura_bunt_v
+	- Lagt til nedlagt på AvdelingV, og tatt dette med i Avdelingvindu
+	- Lagt til betingelsegruppe på vindu for faktureringsbunter	
+	- Mulighet for å rulle tilbake import av betingelser
+	- Lagt Andre betingelser som egen fane
+	
+Ver. 0.0.9
+	- Lagt inn logging	
+	
+Ver. 0.1.0
+	- Laget rapport budsjettert omsetning	
+	
+Ver. 0.1.1
+	- Lagt til kontrakttype på rapport over budsjett	
+	
+Ver. 0.1.2
+	- Implementert manuelt budsjett	
+	
+Ver. 0.1.3
+	- Laget kjededialog	
+	- Lagt inn logging ved lagring av avdeling
+	
+Ver. 0.1.4
+	- Gjort om fakturaer slik at det kommer ut generell tekst pr. betingelse nederst
+	- Implementert låsing på avdeling, fakturering, innlesning av budsjett og import betingelser	
+	
+Ver. 0.1.5
+	- Rettet opp ImportBetingelse-test.hbbm.xml, manglet selskap
+	
+Ver. 0.1.6
+	- Implementert mulighet for å fakturere flere perioder	
+	
+Ver. 0.1.7
+	- Fjernet gammel database og laget ny slik at _test er test og test_ ikke brukes	
+	
+Ver. 0.1.8
+	- Lagt inn sjekk på om avdeling er nedlagt ved import av betingelser
+	- Lagt inn ikoner	
+	
+Ver. 0.1.9
+	- Rettet opp innlesning av omsetning der avdeling fra og til var satt	
+	
+Ver. 0.2.0
+	- Implementert rapport over nye avdelinger	
+	
+Ver. 0.2.1
+	- Rettet opp bug ved oppdatering av betingelser
+	- Lagt til ikon dersom kontrakt går ut	
+
+Ver. 0.2.2
+	- Retter opp at betingelser forsvant
+	
+Ver. 0.2.3
+	- Rettet opp at fakturavindu ikke ble vist		
+	
+Ver. 0.2.4
+	- Lagt til rapport over alle betingelse	
+	
+Ver. 0.2.5
+	- Lagt til toolbarknapper	
+	
+Ver. 0.2.6
+	- Fått inn betingelser fra Fenistra
+	- Rettet opp logg	
+	
+Ver. 0.2.7
+	- Lagt til tinglyst på sikkerhet
+	- Endret kolonnebredde på konrakttabell
+	- Lagt til kontrakt ikke startet og ingen kontrakt på avdelingstatus	
+	- Oppdatert funksjon som skal legge inn default betingelser basert på kontrakt
+	- Endret datoformat for exceleksport av søkevindu
+	- Lagt til underskriftdato på kontrakt
+	- Lagt til årsbeløp og terminbeløp på kontraktobjekt fra Fenistra
+	- Endret tekst beløp til terminbeløp og frekvens til termin på betingelse
+	
+Ver. 0.2.8
+	- Laget klasse og DAO mot LfFakturaPoster i Fenistra
+	- Laget dialog for fakturaposter fra Fenistra	
+	- Laget tabell Speilet_betingelse som skal vise hvilke betingelser som skal speiles
+	- Laget tabell Speilet_kostnad som er kostnader hentet fra Fenistra
+	- Laget dialog for import av betingelser fra Fenistra
+	- Lagt til kolonne speilet for avdeling_betingelse som viser at betingelse er speilet
+	
+Ver. 0.2.9
+	- Lagt til kommentar på sikkerhet	
+	
+Ver. 0.3.0
+	- Konvertert til Java 5
+	- Implementert fakturering av speilede betingelser	
+	
+Ver. 0.3.1
+	- Rettet opp import av budsjett, kuttet dialog for årstall. 
+	  Lagt dette inn som tekstfelt	
+	  
+Ver. 0.3.2
+	- Implementert fakturering av speilede betingelser	  
+	
+Ver. 0.3.3
+	- Rettet opp feil ved fakturering av speilede kostnader
+	- Lagt inn rapport over manglende budsjett	
+	
+Ver. 0.3.4
+	- Fjernet tabell selskap_til_ps og lagt inn informasjon om hvilket selskap som
+	  skal til PS i tabellen Bokf_selskap	
+	  
+Ver. 0.3.5
+	- Rettet feil betingelse-tab for avdeling	  
+	
+Ver. 0.3.6
+	- Lagt til fra og til dato på rapport over manglende budsjett	
+	
+Ver. 0.3.7
+	- Gjort om fakturanr for bokføringsselskap til BigDecimal pga størrelse	
+	
+Ver. 0.3.8
+	- Rettet feil formatering i betingelsetab	
+	
+Ver. 0.3.9
+	- Lagt inn sjekk på om det skal kjøres fakturering av en periode eller flere.
+	  Dersom bare en periode kjøres funskjon faktuer_periode eller fakturer_perioder	
+	  
+Ver. 0.4.0
+	- Diverse småfiks
+	- Lagt til kommentar på buntfeil for mer info om feil	  
+	
+Ver. 0.4.1
+	- Lagt til filter for gruppe på rapporten Totaler betingelser	
+	
+Ver. 0.4.2
+	- Rettet opp fakturaer slik at selskaper som bokføres mot 116 men som har 
+	  betingelser mot annet selskap får riktig avsender på faktura
+	  
+Ver. 0.4.3
+	- Lagt til rapport total fakturering	  
+	
+Ver 0.4.4
+	- Rettet bug i generering av excelfil for summering av kolonner	
+	
+Ver 0.4.5
+	- Lagt inn avdeling i rapport for total fakturering	
+	
+Ver. 0.4.6
+	- Rettet på import av betingelse
+	- Lagt inn sats og beløp på rapport total fakturering	
+	
+Ver. 0.4.7
+	- Rettet opp i feil av generering av excelfil for rapport total fakturering	
+	
+Ver. 0.4.8
+	- Implementert fakturering av bonus	
+	
+Ver. 0.4.9
+	- Rettet opp feilhåndtering i tilbakerulling av betingelser	
+	
+Ver. 0.5.0
+	- Laget nye fakturamaler
+	- Rettet opp korrigering av budsjett/omsetning
+	
+Ver. 0.5.1
+	- Flyttet ICA-logo fra title til pageheader	
+	
+Ver. 0.5.2
+	- Flyttet adressefelt litt ned pgs konvoluttvindu	
+	
+Ver. 0.5.3
+	- Lagt til mangler på avdeling
+	- Laget rapoort over avdelinger som har mangler	
+	- Rettet opp feil i rapport total fakturering
+	
+Ver. 0.5.4
+	- Lagt til franchisetaker
+	- Lagt til PIB
+	- Tatt med salgssjef, fornyelse og PIB i søkekriterier	
+	- Laget rapport over speilede betingelser
+	
+Ver. 0.5.5
+	- Rettet feil i YesNoInteger
+	
+Ver. 0.5.6
+	- Rettet feil i YesNoInteger	
+	
+Ver. 0.5.7
+	- Lagt inn validateObject på BaseObject for å gi bedre feilmelding	
+	
+Ver. 1.0.0
+	- Første versjon lagt in i subversion	
+	
+Ver. 1.0.1
+	- Endret view TOTAL_FAKTURERING	til å kunta hensyn til faktura_linje
+	  ikke avdeling_betingelse, slik at alt kom med.
+	  
+Ver. 1.0.2
+	- Rettet opp i generering av excelfil. Måtte øke heapsize
+	
+Ver. 1.0.3
+	- Lagt inn håndtering av endring av sats midt i en periode
+	- Lagt inn håndtering av begrensninger på beløp det skal beregnes sats fra	
+	
+Ver. 1.0.4
+	- Lagt til kontaktperson og franchisetaker i filtrering	
+	
+Ver. 1.0.5
+	- Fikset sidehåndtering	
+	
+Ver. 1.0.6
+	- Fikset setting av standardcalg i combo for kontrakt under betingelser	
+	
+Ver. 1.0.7	
+	- Gjort justeringer på lesebruker
+	- Lagt inn fokus på avdelingnr ved oppstart

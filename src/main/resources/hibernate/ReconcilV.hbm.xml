@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.ReconcilV" 
+    table="ELFA_RECONCIL_V"
+>
+
+    <id
+        name="batchId"
+        type="java.lang.Integer"
+        column="BATCH_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="net"
+        type="java.math.BigDecimal"
+        column="NET"
+        length="32"
+    />
+    <property
+        name="vat"
+        type="java.math.BigDecimal"
+        column="VAT"
+        length="32"
+    />
+    <property
+        name="invoiceType"
+        type="java.lang.String"
+        column="INVOICE_TYPE"
+        length="255"
+    />
+   
+    <property
+        name="invoiceCount"
+        type="java.lang.Integer"
+        column="INVOICE_COUNT"
+        length="32"
+    />
+	<property
+        name="xmlCount"
+        type="java.lang.Integer"
+        column="XML_COUNT"
+        length="32"
+    />
+   
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Invoice -->
+   
+</class>
+</hibernate-mapping>

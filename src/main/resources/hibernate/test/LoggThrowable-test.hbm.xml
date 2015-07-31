@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.LoggThrowable" 
+    table="LOGG_THROWABLE_TEST"
+>
+
+    <composite-id>
+        <key-property 
+            name="logId" 
+            column="LOG_ID" 
+            type="java.lang.Integer"
+            length="22"
+        />
+        <key-property 
+            name="position" 
+            column="POSITION" 
+            type="java.lang.Integer"
+            length="22"
+        />
+        <key-property 
+            name="message" 
+            column="MESSAGE" 
+            type="java.lang.String"
+            length="255"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

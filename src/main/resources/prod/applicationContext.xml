@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+<!--bean id="sessionFactoryElfa" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="dataSourceElfa"/></property>
+        <property name="mappingResources">
+            <list>
+              <value>hibernate/EepHeadLoad.hbm.xml</value>
+              <value>hibernate/EepLineItemLoad.hbm.xml</value>
+              <value>hibernate/EepHead.hbm.xml</value>
+              <value>hibernate/EepLineItem.hbm.xml</value>
+              <value>hibernate/Batch.hbm.xml</value>
+              <value>hibernate/BatchStatus.hbm.xml</value>
+              <value>hibernate/ApplUserElfa.hbm.xml</value>
+              <value>hibernate/ApplUserTypeElfa.hbm.xml</value>
+              <value>hibernate/Invoice.hbm.xml</value>
+              <value>hibernate/InvoiceItem.hbm.xml</value>
+              
+              <value>hibernate/AccountingTransaction.hbm.xml</value>
+				<value>hibernate/ApplParamElfa.hbm.xml</value>
+				<value>hibernate/Rik2StoreV.hbm.xml</value>
+				<value>hibernate/CreditImport.hbm.xml</value>
+				<value>hibernate/ArticleCommission.hbm.xml</value>
+				<value>hibernate/InvoiceItemV.hbm.xml</value>
+				<value>hibernate/SupplierAccount.hbm.xml</value>
+				<value>hibernate/ReconcilV.hbm.xml</value>
+            </list>
+        </property>
+    </bean-->
+<!-- 	<bean id="sessionFactorySqlServer" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+<!--         <property name="dataSource"><ref bean="dataSourceSqlServer"/></property> -->
+<!--         <property name="mappingResources"> -->
+<!--             <list> -->
+<!--               <value>hibernate/LkKontraktobjekter.hbm.xml</value> -->
+<!--               <value>hibernate/LfFakturaPoster.hbm.xml</value> -->
+<!-- 			  <value>hibernate/MrKonti.hbm.xml</value> -->
+<!-- 			  <value>hibernate/MrTransaksjonTyperEd.hbm.xml</value> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--     </bean> -->
+		<!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="mappingResources">
+            <list>
+            <value>hibernate/LkKontraktobjekter.hbm.xml</value>
+              <value>hibernate/LfFakturaPoster.hbm.xml</value>
+              <value>hibernate/ApplParam.hbm.xml</value>
+              <value>hibernate/ApplUserType.hbm.xml</value>
+			  <value>hibernate/ApplUser.hbm.xml</value>
+			  <value>hibernate/AvdelingV.hbm.xml</value>
+			  <value>hibernate/Rik2RegionV.hbm.xml</value>
+			  <value>hibernate/Rik2KjedeV.hbm.xml</value>
+			  <value>hibernate/BokfSelskap.hbm.xml</value>
+			  <value>hibernate/AvdelingStatus.hbm.xml</value>
+			  <value>hibernate/KontraktType.hbm.xml</value>
+			  <value>hibernate/KontraktBetingelse.hbm.xml</value>
+			  <value>hibernate/BetingelseType.hbm.xml</value>
+			  <value>hibernate/Bunt.hbm.xml</value>
+			  <value>hibernate/Faktura.hbm.xml</value>
+			  <value>hibernate/FakturaLinje.hbm.xml</value>
+			  <value>hibernate/AvdelingBetingelse.hbm.xml</value>
+			  <value>hibernate/Avdeling.hbm.xml</value>
+			  <value>hibernate/AvdelingKontrakt.hbm.xml</value>
+			  <value>hibernate/Mva.hbm.xml</value>
+			  <value>hibernate/Rik2AvdV.hbm.xml</value>
+			  <value>hibernate/AvregningType.hbm.xml</value>
+			  <value>hibernate/AvregningBasisType.hbm.xml</value>
+			  <value>hibernate/AvregningFrekvensType.hbm.xml</value>
+			  <value>hibernate/AvdelingOmsetning.hbm.xml</value>
+			  <value>hibernate/FornyelseType.hbm.xml</value>
+			  <value>hibernate/Eierforhold.hbm.xml</value>
+			  <value>hibernate/Adendum.hbm.xml</value>
+			  <value>hibernate/AnnenKontrakt.hbm.xml</value>
+			  <value>hibernate/SikkerhetType.hbm.xml</value>
+			  <value>hibernate/Sikkerhet.hbm.xml</value>
+			  <value>hibernate/AvdelingLogg.hbm.xml</value>
+			  <value>hibernate/FakturaTekst.hbm.xml</value>
+			  <value>hibernate/RegnskapKladd.hbm.xml</value>
+			  <value>hibernate/BetingelseGruppe.hbm.xml</value>
+			  <value>hibernate/ImportBetingelse.hbm.xml</value>
+			  <value>hibernate/BuntType.hbm.xml</value>
+			  <value>hibernate/BuntStatus.hbm.xml</value>
+			  <value>hibernate/FakturaBuntV.hbm.xml</value>
+			  <value>hibernate/FakturaV.hbm.xml</value>
+			  <value>hibernate/FeilKode.hbm.xml</value>
+			  <value>hibernate/FakturaFeil.hbm.xml</value>
+			  <value>hibernate/BetingelseTotalV.hbm.xml</value>
+			  <value>hibernate/Logg.hbm.xml</value>
+			  <value>hibernate/LoggThrowable.hbm.xml</value>
+			  <value>hibernate/AvdelingOversiktV.hbm.xml</value>
+			  <value>hibernate/Kjede.hbm.xml</value>
+			  <value>hibernate/LaasType.hbm.xml</value>
+			  <value>hibernate/Laas.hbm.xml</value>
+			  <value>hibernate/NyAvdelingV.hbm.xml</value>
+			  <value>hibernate/AvdelingBetingelseV.hbm.xml</value>
+			  <value>hibernate/SpeiletBetingelse.hbm.xml</value>
+			  <value>hibernate/SpeiletKostnad.hbm.xml</value>
+			  <value>hibernate/BuntFeil.hbm.xml</value>
+			  <value>hibernate/TotalFaktureringV.hbm.xml</value>
+			  <value>hibernate/Rik2DistriktssjeferV.hbm.xml</value>
+			  <value>hibernate/MangelType.hbm.xml</value>
+			  <value>hibernate/AvdelingMangel.hbm.xml</value>
+			  <value>hibernate/AvdelingMangelV.hbm.xml</value>
+			  <value>hibernate/Garanti.hbm.xml</value>
+			  <value>hibernate/AvdelingOmsetningV.hbm.xml</value>
+			  <value>hibernate/AvdelingSikkerhetV.hbm.xml</value>
+				
+				<value>hibernate/EflowUsersV.hbm.xml</value>
+				<value>hibernate/AvdelingAvregningImport.hbm.xml</value>
+				<value>hibernate/AvdelingAvregningBelop.hbm.xml</value>
+				<value>hibernate/AvdelingAvregning.hbm.xml</value>
+				<value>hibernate/TgFaktura.hbm.xml</value>
+				<value>hibernate/TgFakturaLinje.hbm.xml</value>
+				<value>hibernate/TgFakturaLinjeV.hbm.xml</value>
+				<value>hibernate/TgImport.hbm.xml</value>
+				<value>hibernate/TgLinjeExtV.hbm.xml</value>
+				<value>hibernate/TgMeldingExtV.hbm.xml</value>
+				<value>hibernate/TgNotImportedV.hbm.xml</value>
+				<value>hibernate/TgTotalFaktureringV.hbm.xml</value>
+				<value>hibernate/FakturaTekstV.hbm.xml</value>
+				<value>hibernate/TgReconcilV.hbm.xml</value>
+				<value>hibernate/TotalAvregningV.hbm.xml</value>
+				<value>hibernate/Invoice.hbm.xml</value>
+				<value>hibernate/InvoiceItem.hbm.xml</value>
+				<value>hibernate/SupplierAccount.hbm.xml</value>
+				<value>hibernate/ArticleCommission.hbm.xml</value>
+				<value>hibernate/EepHeadLoad.hbm.xml</value>
+              <value>hibernate/EepLineItemLoad.hbm.xml</value>
+				<value>hibernate/EepHead.hbm.xml</value>
+              <value>hibernate/EepLineItem.hbm.xml</value>
+				<value>hibernate/InvoiceItemV.hbm.xml</value>
+				<value>hibernate/ReconcilV.hbm.xml</value>
+				<value>hibernate/CreditImport.hbm.xml</value>
+				<value>hibernate/SpeiletBetingelseMangelV.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:hibernate.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    
+    <bean id="transactionManagerSqlServer" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactorySqlServer"/></property>
+    </bean>
+    <!--bean id="transactionManagerElfa" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactoryElfa"/></property>
+    </bean-->
+	
+	
+	
+    
+    <!-- Transaction template for Managers, from:
+         http://blog.exis.com/colin/archives/2004/07/31/concise-transaction-definitions-spring-11/ -->
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="false">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="txProxyTemplateSqlServer" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="false">
+        <property name="transactionManager"><ref bean="transactionManagerSqlServer"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    <!--bean id="txProxyTemplateElfa" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="false">
+        <property name="transactionManager"><ref bean="transactionManagerElfa"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean-->
+
+	
+    <!-- Generic DAO - can be used when doing standard CRUD -->
+    <!--bean id="dao" class="no.ica.fraf.dao.hibernate.BaseDAOHibernate">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean-->
+    
+    <!--bean id="daoSqlServer" class="no.ica.fraf.dao.hibernate.BaseDAOHibernate">
+        <property name="sessionFactory"><ref local="sessionFactorySqlServer"/></property>
+    </bean-->
+    
+
+
+
+		
+		
+		
+</beans>

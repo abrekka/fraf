@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.TotalAvregningV" 
+    table="TOTAL_AVREGNING_V"
+>
+
+<composite-id name="totalAvregningVPK" class="no.ica.fraf.model.TotalAvregningVPK">
+        <key-property 
+            name="buntId" 
+            column="BUNT_ID" 
+            type="java.lang.Integer"
+            length="100"
+        />
+        <key-property 
+            name="avdnr" 
+            column="AVDNR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+    </composite-id>    
+        <property 
+            name="sumAvregning" 
+            column="SUM_AVREGNING" 
+            type="java.math.BigDecimal"
+            length="32"
+        />
+	<property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+    />
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

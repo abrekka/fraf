@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.FeilKode" 
+    table="FEIL_KODE_TEST"
+>
+
+    <id
+        name="feilKodeId"
+        type="java.lang.Integer"
+        column="FEIL_KODE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_feil_kode_TEST</param>
+        </generator>
+    </id>
+
+	<property
+        name="feilKode"
+        type="java.lang.String"
+        column="FEIL_KODE"
+        length="100"
+    />
+
+	<property
+        name="feilBeskrivelse"
+        type="java.lang.String"
+        column="FEIL_BESKRIVELSE"
+        length="100"
+    />
+    
+</class>
+</hibernate-mapping>

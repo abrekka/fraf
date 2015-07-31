@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgNotImportedV" 
+    table="TG_NOT_IMPORTED_V"
+>
+
+    <id
+        name="meldingId"
+        type="java.lang.Integer"
+        column="MELDING_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="meldingstype"
+        type="java.lang.String"
+        column="MELDINGSTYPE"
+        not-null="true"
+        length="255"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        not-null="false"
+        length="32"
+    />
+    <property
+        name="transDato"
+        type="java.util.Date"
+        column="TRANS_DATO"
+        not-null="false"
+        length="10"
+    />
+    <property
+        name="dtReg"
+        type="java.util.Date"
+        column="DT_REG"
+        length="10"
+    />
+	<property
+        name="lopenrFil"
+        type="java.lang.String"
+        column="LOPENR_FIL"
+        length="50"
+    />
+	<property
+        name="importert"
+        type="java.lang.Integer"
+        column="IMPORTERT"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EepLineItemLoad -->
+
+</class>
+</hibernate-mapping>

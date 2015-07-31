@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.elfa.model.AccountingTransaction" 
+    table="ACCOUNTING_TRANSACTION_TEST"
+>
+
+    <id
+        name="accountingTransactionId"
+        type="java.math.BigDecimal"
+        column="ACCOUNTING_TRANSACTION_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="createdDate"
+        type="java.sql.Timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="worksheetName"
+        type="java.lang.String"
+        column="WORKSHEET_NAME"
+        length="30"
+    />
+    <property
+        name="companyNo"
+        type="java.lang.String"
+        column="COMPANY_NO"
+        length="10"
+    />
+    <property
+        name="storeNo"
+        type="java.math.BigDecimal"
+        column="STORE_NO"
+        length="22"
+    />
+    <property
+        name="transactionDate"
+        type="java.sql.Timestamp"
+        column="TRANSACTION_DATE"
+        length="7"
+    />
+    <property
+        name="accountNo"
+        type="java.lang.String"
+        column="ACCOUNT_NO"
+        length="10"
+    />
+    <property
+        name="transactionAmount"
+        type="java.math.BigDecimal"
+        column="TRANSACTION_AMOUNT"
+        length="22"
+    />
+    <property
+        name="vatCode"
+        type="java.lang.String"
+        column="VAT_CODE"
+        length="10"
+    />
+    <property
+        name="transactionText"
+        type="java.lang.String"
+        column="TRANSACTION_TEXT"
+        length="255"
+    />
+    <property
+        name="articleNumber"
+        type="java.math.BigDecimal"
+        column="ARTICLE_NUMBER"
+        length="22"
+    />
+    <property
+        name="accountType"
+        type="java.lang.String"
+        column="ACCOUNT_TYPE"
+        length="1"
+    />
+    <property
+        name="fromDate"
+        type="java.sql.Timestamp"
+        column="FROM_DATE"
+        length="7"
+    />
+    <property
+        name="toDate"
+        type="java.sql.Timestamp"
+        column="TO_DATE"
+        length="7"
+    />
+    <property
+        name="invoiceNr"
+        type="java.math.BigDecimal"
+        column="INVOICE_NR"
+        length="22"
+    />
+    <property
+        name="createdBy"
+        type="java.lang.String"
+        column="CREATED_BY"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to EepLineItem -->
+    <many-to-one
+        name="eepLineItem"
+        class="no.ica.elfa.model.EepLineItem"
+        not-null="true"
+    >
+        <column name="EEP_LINE_ITEM_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to Batch -->
+    <many-to-one
+        name="batch"
+        class="no.ica.elfa.model.Batch"
+        not-null="true"
+    >
+        <column name="BATCH_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

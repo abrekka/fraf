@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Rik2AvdV" 
+    table="RIK2_AVD_V_TEST"
+>
+
+    <id
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+    >
+    
+        <generator class="assigned"/>
+    </id>
+
+	<property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        length="20"
+    />
+    <!--property
+        name="kjede"
+        type="java.lang.Integer"
+        column="KJEDE"
+        length="32"
+    /-->
+    <property
+        name="region"
+        type="java.lang.Integer"
+        column="REGION"
+        length="32"
+    />
+    <property
+        name="datasetConcorde"
+        type="java.lang.String"
+        column="DATASET_CONCORDE"
+        length="32"
+    />
+    <property
+        name="juridiskEier"
+        type="java.lang.Integer"
+        column="JURIDISK_EIER"
+        length="32"
+    />
+    <property
+        name="adr1"
+        type="java.lang.String"
+        column="ADR_1"
+        length="32"
+    />
+    <property
+        name="adr2"
+        type="java.lang.String"
+        column="ADR_2"
+        length="32"
+    />
+    <property
+        name="postnr"
+        type="java.lang.Integer"
+        column="POSTNR"
+        length="32"
+    />
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="32"
+    />
+    <property
+        name="ansvarlig"
+        type="java.lang.String"
+        column="ANSVARLIG"
+        length="32"
+    />
+	<property
+        name="dtSlutt"
+        type="java.util.Date"
+        column="DT_SLUTT"
+        length="10"
+    />
+	<property
+        name="dtStart"
+        type="java.util.Date"
+        column="DT_START"
+        length="10"
+    />
+	<property
+        name="butiksNr"
+        type="java.lang.Integer"
+        column="BUTIKS_NR"
+        length="32"
+    />
+	<property
+        name="avtaletype"
+        type="java.lang.String"
+        column="AVTALETYPE"
+        length="1"
+    />
+	<property
+        name="lokasjonsnr"
+        type="java.math.BigDecimal"
+        column="LOKASJONSNR"
+        length="32"
+    />
+	<property
+        name="juridiskEierPoststed"
+        type="java.lang.String"
+        column="JURIDISK_EIER_POSTSTED"
+        length="32"
+    />
+	<property
+        name="juridiskEierNavn"
+        type="java.lang.String"
+        column="JURIDISK_EIER_NAVN"
+        length="32"
+    />
+	<property
+        name="juridiskEierAdr1"
+        type="java.lang.String"
+        column="JURIDISK_EIER_ADR1"
+        length="32"
+    />
+	<property
+        name="juridiskEierPostnr"
+        type="java.lang.String"
+        column="JURIDISK_EIER_POSTNR"
+        length="32"
+    />
+    <!-- Associations -->
+	 <many-to-one
+        name="rik2KjedeV"
+        class="no.ica.fraf.model.Rik2KjedeV"
+        not-null="true"
+        not-found="ignore"
+    >
+        <column name="KJEDE" not-null="true" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

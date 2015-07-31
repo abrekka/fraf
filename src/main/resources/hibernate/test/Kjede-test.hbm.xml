@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Kjede" 
+    table="KJEDE_TEST"
+>
+
+    <id
+        name="kjedeId"
+        type="java.lang.Integer"
+        column="KJEDE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_kjede_TEST</param>
+        </generator>
+    </id>
+
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="chain"
+        class="no.ica.fraf.model.Rik2KjedeV"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="KJEDE" />
+    </many-to-one>
+    
+    <many-to-one
+        name="bokfSelskap"
+        class="no.ica.fraf.model.BokfSelskap"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="SELSKAP_ID" />
+    </many-to-one>
+    
+
+</class>
+</hibernate-mapping>

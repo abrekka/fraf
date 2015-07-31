@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.LkKontraktobjekter" 
+    table="LK_KONTRAKTOBJEKTER"
+>
+
+    <id
+        name="kontraktObjektId"
+        type="java.lang.Integer"
+        column="KONTRAKTOBJEKTID"
+    >
+    
+    </id>
+
+    <property
+        name="kontraktObjektNr"
+        type="java.lang.String"
+        column="KONTRAKTOBJEKTNR"
+        length="3"
+    />
+    <property
+        name="kontraktObjekt"
+        type="java.lang.String"
+        column="KONTRAKTOBJEKT"
+        length="50"
+    />
+    
+    <property
+        name="terminer"
+        type="java.lang.Integer"
+        column="TERMINER"
+        length="50"
+    />
+    
+    <property
+        name="startDato"
+        type="java.util.Date"
+        column="STARTDATO"
+        length="10"
+    />
+    
+    <property
+        name="sluttDato"
+        type="java.util.Date"
+        column="SLUTTDATO"
+        length="10"
+    />
+    
+    <property
+        name="aarsBeloep"
+        type="java.math.BigDecimal"
+        column="AARSBELOEP"
+        length="32"
+    />
+    
+    <property
+        name="fakturabeloep"
+        type="java.math.BigDecimal"
+        column="FAKTURABELOEP"
+        length="32"
+    />
+
+    <!-- Associations -->
+<!--	<many-to-one-->
+<!--        name="mrTransaksjonTyperEd"-->
+<!--        class="no.ica.fraf.model.MrTransaksjonTyperEd"-->
+<!--        not-null="true"-->
+<!--        insert="false"-->
+<!--        update="false"-->
+<!--    >-->
+<!--        <column name="TRANSAKSJONTYPEEDID" />-->
+<!--    </many-to-one>-->
+  
+</class>
+</hibernate-mapping>

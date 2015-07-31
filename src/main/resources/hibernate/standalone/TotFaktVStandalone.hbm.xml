@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.TotalFaktureringV" 
+    table="TOT_FAKT_V_STANDALONE"
+>
+
+<id
+        name="fakturaLinjeId"
+        type="java.lang.Integer"
+        column="FAKTURA_LINJE_ID"
+    >
+    
+        <generator class="assigned"/>
+    </id>
+        <property 
+            name="aar" 
+            column="AAR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <property 
+            name="fraPeriode" 
+            column="FRA_PERIODE" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <property
+        	name="tilPeriode"
+        	type="java.lang.Integer"
+        	column="TIL_PERIODE"
+        	length="32"
+    	/>
+    	<property
+        	name="linjeBeskrivelse"
+        	type="java.lang.String"
+        	column="LINJE_BESKRIVELSE"
+        	length="255"
+    	/>
+    	<property
+        	name="avdnr"
+        	type="java.lang.Integer"
+        	column="AVDNR"
+        	length="32"
+    	/>
+    	<property
+        	name="totalBelop"
+        	type="java.math.BigDecimal"
+        	column="TOTAL_BELOP"
+        	length="32"
+    	/>
+
+	<property
+        	name="kjedeNavn"
+        	type="java.lang.String"
+        	column="KJEDE_NAVN"
+        	length="255"
+    	/>
+    	<property
+        	name="regionNavn"
+        	type="java.lang.String"
+        	column="REGION_NAVN"
+        	length="255"
+    	/>
+    	<property
+        	name="salgssjef"
+        	type="java.lang.String"
+        	column="SALGSSJEF"
+        	length="255"
+    	/>
+    	
+    	
+    
+    <property
+        	name="navn"
+        	type="java.lang.String"
+        	column="NAVN"
+        	length="255"
+    	/>
+    	<property
+        	name="sats"
+        	type="java.math.BigDecimal"
+        	column="SATS"
+        	length="32"
+    	/>
+    	<property
+        	name="belop"
+        	type="java.math.BigDecimal"
+        	column="BELOP"
+        	length="32"
+    	/>
+    	<property
+        	name="mvaBelop"
+        	type="java.math.BigDecimal"
+        	column="MVA_BELOP"
+        	length="32"
+    	/>
+    	<property
+        	name="fakturaNr"
+        	type="java.lang.String"
+        	column="FAKTURA_NR"
+        	length="50"
+    	/>
+    	<property
+        	name="selskapNavn"
+        	type="java.lang.String"
+        	column="SELSKAP_NAVN"
+        	length="50"
+    	/>
+	<property
+        	name="betingelseTypeKode"
+        	type="java.lang.String"
+        	column="BETINGELSE_TYPE_KODE"
+        	length="50"
+    	/>
+	<property
+        	name="juridiskEier"
+        	type="java.lang.String"
+        	column="JURIDISK_EIER"
+        	length="100"
+    	/>
+	<property
+        	name="juridiskEierAdr1"
+        	type="java.lang.String"
+        	column="JURIDISK_EIER_ADR1"
+        	length="100"
+    	/>
+	<property
+        	name="juridiskEierPostnr"
+        	type="java.lang.String"
+        	column="JURIDISK_EIER_POSTNR"
+        	length="100"
+    	/>
+	<property
+        	name="juridiskEierPoststed"
+        	type="java.lang.String"
+        	column="JURIDISK_EIER_POSTSTED"
+        	length="100"
+    	/>
+	<property
+        	name="betingelseGruppeId"
+        	type="java.lang.Integer"
+        	column="BETINGELSE_GRUPPE_ID"
+        	length="32"
+    	/>
+	<property
+        	name="forfallDato"
+        	type="java.util.Date"
+        	column="FORFALL_DATO"
+        	length="32"
+    	/>
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

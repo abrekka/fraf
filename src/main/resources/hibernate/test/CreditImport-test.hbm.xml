@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.CreditImport" 
+    table="elfa_CREDIT_IMPORT_TEST"
+>
+
+    <id
+        name="creditImportId"
+        type="java.lang.Integer"
+        column="CREDIT_IMPORT_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_credit_import_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="creditDate"
+        type="java.util.Date"
+        column="CREDIT_DATE"
+        length="10"
+    />
+    <property
+        name="code"
+        type="java.lang.String"
+        column="CODE"
+        length="50"
+    />
+    <property
+        name="price"
+        type="java.math.BigDecimal"
+        column="PRICE"
+        length="32"
+    />
+    <property
+        name="depNr"
+        type="java.lang.Integer"
+        column="DEP_NR"
+        length="4"
+    />
+    <property
+        name="counter"
+        type="java.lang.Integer"
+        column="COUNTER"
+        length="32"
+    />
+	<property
+        name="fileName"
+        type="java.lang.String"
+        column="FILE_NAME"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to InvoiceItem -->
+    <!-- bi-directional many-to-one association to Batch -->
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+		fetch="join"
+    >
+        <column name="BATCH_ID" />
+    </many-to-one>
+    
+
+</class>
+</hibernate-mapping>

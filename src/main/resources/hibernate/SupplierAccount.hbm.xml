@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.SupplierAccount" 
+    table="ELFA_SUPPLIER_ACCOUNT"
+>
+
+    <id
+        name="supplierNo"
+        type="java.lang.Integer"
+        column="SUPPLIER_NO"
+    >
+        <generator class="assigned"/>
+    </id>
+
+    <property
+        name="accountName"
+        type="java.lang.String"
+        column="ACCOUNT_NAME"
+        length="50"
+    />
+    <property
+        name="accountNo"
+        type="java.lang.String"
+        column="ACCOUNT_NO"
+        length="32"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to InvoiceItem -->
+    <!-- bi-directional many-to-one association to Batch -->
+
+</class>
+</hibernate-mapping>

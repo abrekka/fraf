@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	
+	<bean id="avdelingAvregningBelopManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningBelopManagerImpl">
+				<property name="avdelingAvregningBelopDAO" ref="avdelingAvregningBelopDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="avdelingAvregningManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningManagerImpl">
+				<property name="avdelingAvregningDAO" ref="avdelingAvregningDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="totalAvregningVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.TotalAvregningVManagerImpl">
+				<property name="totalAvregningVDAO" ref="totalAvregningVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="frafE2bPkgManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.FrafE2bPkgManagerImpl">
+				<property name="e2bPkgDAO" ref="frafE2bPkgDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- bean id="frafMainFrameHandler" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.gui.FrafMainFrameHandler">
+				<property name="applUserDAO" ref="applUserDAO"/>
+				<property name="avregningFrekvensTypeDAO" ref="avregningFrekvensTypeDAO"/>
+				<property name="avregningTypeDAO" ref="avregningTypeDAO"/>
+				<property name="betingelseGruppeDAO" ref="betingelseGruppeDAO"/>
+				<property name="betingelseTypeDAO" ref="betingelseTypeDAO"/>
+				<property name="bokfSelskapDAO" ref="bokfSelskapDAO"/>
+				<property name="kontraktTypeDAO" ref="kontraktTypeDAO"/>
+				<property name="loggDAO" ref="loggDAO"/>
+				<property name="laasDAO" ref="laasDAO"/>
+				<property name="mangelTypeDAO" ref="mangelTypeDAO"/>
+				<property name="mvaDAO" ref="mvaDAO"/>
+			</bean>
+		</property>
+	</bean> -->
+
+	
+	<bean id="avdelingAvregningImportManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningImportManagerImpl">
+				<property name="avdelingAvregningImportDAO" ref="avdelingAvregningImportDAO"/>
+				<property name="avdelingOmsetningDAO" ref="avdelingOmsetningDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="fakturaTekstVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.FakturaTekstVManagerImpl">
+				<property name="fakturaTekstVDAO" ref="fakturaTekstVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="speiletBetingelseMangelVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SpeiletBetingelseMangelVManagerImpl">
+				<property name="speiletBetingelseMangelVDAO" ref="speiletBetingelseMangelVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapDepartmentManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapDepartmentManagerImpl">
+				<property name="sapDepartmentDAO" ref="departmentDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapChainManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapChainManagerImpl">
+				<property name="sapChainDAO" ref="chainDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapRegionManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapRegionManagerImpl">
+				<property name="sapRegionDAO" ref="regionDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapLegalOwnerManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapLegalOwnerManagerImpl">
+				<property name="sapLegalOwnerDAO" ref="sapLegalOwnerDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapDistrictManagerManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapDistrictManagerManagerImpl">
+				<property name="sapDistrictManagerDAO" ref="districtManagerDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="paperManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.PaperManagerStandalone">
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapSaleManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapSaleManagerImpl">
+				<property name="sapSaleDAO" ref="sapSaleDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

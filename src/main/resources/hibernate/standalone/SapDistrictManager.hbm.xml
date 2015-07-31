@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SapDistrictManager" 
+    table="SAP_DISTRICT_MANAGER"
+>
+
+    <id
+        name="districtManagerName"
+        type="java.lang.String"
+        column="DiSTRICT_MANAGER_NAME"
+    >
+    
+        <generator class="assigned"/>
+    </id>
+
+    <!-- property
+        name="districtManagerName"
+        type="java.lang.String"
+        column="DISTRICT_MANAGER_NAME"
+        length="50"
+    />
+    <property
+        name="kjede"
+        type="java.lang.Integer"
+        column="KJEDE"
+        length="32"
+    /> -->
+         
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

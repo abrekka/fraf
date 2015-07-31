@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.ApplUser" 
+    table="APPL_USER_TEST"
+>
+    <id
+        name="userId"
+        type="java.lang.Integer"
+        column="USER_ID"
+    >
+        <generator class="sequence">
+            <param name="sequence">seq_appl_user_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="userName"
+        type="java.lang.String"
+        column="USER_NAME"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="firstName"
+        type="java.lang.String"
+        column="FIRST_NAME"
+        length="30"
+    />
+    <property
+        name="surname"
+        type="java.lang.String"
+        column="SURNAME"
+        length="30"
+    />
+    
+    <property
+        name="password"
+        type="java.lang.String"
+        column="PASSWORD"
+        length="10"
+    />
+    
+    <property
+        name="lnf"
+        type="java.lang.String"
+        column="LNF"
+        length="50"
+    />
+    
+    <property
+        name="startDate"
+        type="java.util.Date"
+        column="START_DATE"
+        length="10"
+    />
+	
+	<property
+        name="guiVersion"
+        type="java.lang.String"
+        column="GUI_VERSION"
+        length="10"
+    />
+	<property
+        name="disabled"
+        type="java.lang.Integer"
+        column="DISABLED"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to AccessCompany -->
+    <!-- bi-directional many-to-one association to ApplicationUserType -->
+    <many-to-one
+        name="applUserType"
+        class="no.ica.fraf.model.ApplUserType"
+        not-null="true"
+    >
+        <column name="TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

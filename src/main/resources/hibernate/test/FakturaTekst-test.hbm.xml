@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.FakturaTekst" 
+    table="FAKTURA_TEKST_TEST"
+>
+
+    <id
+        name="fakturaTekstId"
+        type="java.math.BigDecimal"
+        column="FAKTURA_TEKST_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="fakturaTekstType"
+        type="java.lang.String"
+        column="FAKTURA_TEKST_TYPE"
+        length="3"
+    />
+    <property
+        name="fakturaTekst"
+        type="java.lang.String"
+        column="FAKTURA_TEKST"
+        length="2000"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="38"
+    />
+    <property
+        name="sortering"
+        type="java.math.BigDecimal"
+        column="SORTERING"
+        length="22"
+    />
+
+    <!-- Associations -->
+  	<many-to-one
+        name="faktura"
+        class="no.ica.fraf.model.Faktura"
+        not-null="true"
+    >
+        <column name="FAKTURA_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

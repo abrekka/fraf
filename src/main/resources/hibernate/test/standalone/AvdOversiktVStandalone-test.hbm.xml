@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingOversiktV" 
+    table="AVD_OVERSIKT_V_STANDALONE_TEST"
+>
+
+	    <composite-id name="avdelingOversiktVPK" class="no.ica.fraf.model.AvdelingOversiktVPK">
+        <key-property 
+            name="avdnr" 
+            column="AVDNR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="avdelingBetingelseId" 
+            column="AVDELING_BETINGELSE_ID" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+        length="32"
+    />
+    </composite-id>    
+
+    <property
+        name="avdelingNavn"
+        type="java.lang.String"
+        column="AVDELING_NAVN"
+        length="50"
+    />
+    <property
+        name="adr1"
+        type="java.lang.String"
+        column="ADR_1"
+        length="30"
+    />
+    
+    <property
+        name="adr2"
+        type="java.lang.String"
+        column="ADR_2"
+        length="30"
+    />
+    
+    <property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="5"
+    />
+    
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="25"
+    />
+    
+    <property
+        name="juridiskNavn"
+        type="java.lang.String"
+        column="JURIDISK_NAVN"
+        length="40"
+    />
+    
+    <property
+        name="bokfSelskap"
+        type="java.lang.String"
+        column="BOKF_SELSKAP"
+        length="50"
+    />
+    
+    <property
+        name="kjede"
+        type="java.lang.String"
+        column="KJEDE"
+        length="30"
+    />
+    
+    <property
+        name="status"
+        type="java.lang.String"
+        column="STATUS"
+        length="255"
+    />
+    
+   
+        
+    <property
+        name="sumAar"
+        type="java.math.BigDecimal"
+        column="SUM_AAR"
+        length="32"
+    />
+    <property
+        name="betingelseNavn"
+        type="java.lang.String"
+        column="BETINGELSE_NAVN"
+        length="50"
+    />
+    <property
+        name="fraDato"
+        type="java.util.Date"
+        column="FRA_DATO"
+        length="7"
+    />
+    <property
+        name="tilDato"
+        type="java.util.Date"
+        column="TIL_DATO"
+        length="7"
+    />
+    
+    <property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="32"
+    />
+    
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+    
+    
+    <property
+        name="avregningFrekvensTypeTxt"
+        type="java.lang.String"
+        column="AVREGNING_FREKVENS_TYPE_TXT"
+        length="50"
+    />
+    
+    <property
+        name="avregningTypeTxt"
+        type="java.lang.String"
+        column="AVREGNING_TYPE_TXT"
+        length="30"
+    />
+    
+    <property
+        name="kontraktType"
+        type="java.lang.String"
+        column="KONTRAKT_TYPE"
+        length="30"
+    />
+    
+    
+
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

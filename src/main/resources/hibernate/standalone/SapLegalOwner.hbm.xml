@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SapLegalOwner" 
+    table="SAP_LEGAL_OWNER"
+>
+
+    <id
+        name="nr"
+        type="java.lang.Integer"
+        column="NR"
+    >
+    
+        <generator class="assigned"/>
+    </id>
+
+    <property
+        name="legalOwnerName"
+        type="java.lang.String"
+        column="LEGAL_OWNER_NAME"
+        length="50"
+    />
+    <property
+        name="adr1"
+        type="java.lang.String"
+        column="ADR1"
+        length="100"
+    />
+    <property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="10"
+    />
+    <property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="100"
+    />
+    <property
+        name="orgNr"
+        type="java.math.BigInteger"
+        column="ORG_NR"
+        length="32"
+    />
+         
+    <!-- Associations -->
+  
+</class>
+</hibernate-mapping>

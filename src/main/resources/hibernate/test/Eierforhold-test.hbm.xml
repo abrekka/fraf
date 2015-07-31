@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Eierforhold" 
+    table="EIERFORHOLD_TEST"
+>
+
+    <id
+        name="eierforholdId"
+        type="java.lang.Integer"
+        column="EIERFORHOLD_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_eierforhold_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        unique="true"
+        length="100"
+        not-null="false"
+    />
+    <property
+        name="fodseldatoOrgNr"
+        type="java.lang.String"
+        column="FODSELDATO_ORG_NR"
+        length="20"
+    />
+    <property
+        name="antallAksjer"
+        type="java.lang.Integer"
+        column="ANTALL_AKSJER"
+        length="32"
+    />
+    
+    <property
+        name="paalydende"
+        type="java.math.BigDecimal"
+        column="PAALYDENDE"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="avdeling"
+        lazy="false"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+    >
+        <column name="AVDELING_ID" not-null="true" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

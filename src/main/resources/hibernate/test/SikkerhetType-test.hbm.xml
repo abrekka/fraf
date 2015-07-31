@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SikkerhetType" 
+    table="SIKKERHET_TYPE_TEST"
+>
+
+    <id
+        name="sikkerhetTypeId"
+        type="java.lang.Integer"
+        column="SIKKERHET_TYPE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_sikkerhet_type_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="sikkerhetTypeTekst"
+        type="java.lang.String"
+        column="SIKKERHET_TYPE_TEKST"
+        not-null="true"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

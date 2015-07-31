@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Laas" 
+    table="LAAS_TEST"
+>
+
+    <id
+        name="laasId"
+        type="java.lang.Integer"
+        column="LAAS_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_laas_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="laasDato"
+        type="java.util.Date"
+        column="LAAS_DATO"
+        length="22"
+        not-null="false"        
+    />
+	<property
+        name="id"
+        type="java.lang.Integer"
+        column="ID"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="laasType"
+        class="no.ica.fraf.model.LaasType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="LAAS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="applUser"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="USER_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    
+
+</class>
+</hibernate-mapping>

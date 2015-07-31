@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.Avdeling" 
+    table="AVDELING_TEST"
+>
+
+	<id
+        name="avdelingId"
+        type="java.lang.Integer"
+        column="AVDELING_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avdeling_TEST</param>
+        </generator>
+    </id>
+    
+    
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        unique="true"
+        length="22"
+    />
+    <property
+        name="opprettetDato"
+        type="java.util.Date"
+        column="OPPRETTET_DATO"
+        length="7"
+    />
+    <property
+        name="endretDato"
+        type="java.util.Date"
+        column="ENDRET_DATO"
+        length="7"
+    />
+    
+    
+    <property
+        name="kommentar"
+        type="java.lang.String"
+        column="KOMMENTAR"
+        length="500"
+    />
+    
+    <property
+        name="kid"
+        type="java.lang.String"
+        column="KID"
+        length="50"
+    />
+    
+    <property
+        name="franchisetaker"
+        type="java.lang.String"
+        column="FRANCHISETAKER"
+        length="200"
+    />
+    <property
+        name="pib"
+        type="java.lang.Integer"
+        column="PIB"
+        length="1"
+    />
+	<property
+        name="archiveInfo"
+        type="java.lang.String"
+        column="ARCHIVE_INFO"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to AvdelingKontrakt -->
+    <set
+        name="avdelingKontrakts"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingKontrakt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Faktura -->
+    <set
+        name="fakturas"
+        lazy="true"
+        inverse="true"
+		cascade="persist,merge,save-update"
+		order-by="FAKTURA_ID DESC"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Faktura"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to AvdelingBetingelse -->
+    <set
+        name="avdelingBetingelses"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+		order-by="BETINGELSE_TYPE_ID"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingBetingelse"
+        />
+    </set>
+    
+    <many-to-one
+        name="bokfSelskap"
+        class="no.ica.fraf.model.BokfSelskap"
+        not-null="true"
+    >
+        <column name="SELSKAP_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="applUser"
+        class="no.ica.fraf.model.ApplUser"
+        not-null="false"
+    >
+        <column name="USER_ID" />
+    </many-to-one>
+
+	<set
+        name="eierforholds"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Eierforhold"
+        />
+    </set>
+    
+    <set
+        name="adendums"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+		order-by="ADENDUM_NR"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Adendum"
+        />
+    </set>
+    
+    <set
+        name="annenKontrakts"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AnnenKontrakt"
+        />
+    </set>
+    
+    <set
+        name="sikkerhets"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Sikkerhet"
+        />
+    </set>
+    
+    <set
+        name="avdelingLoggs"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+		order-by="LOGG_ID DESC"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingLogg"
+        />
+    </set>
+
+	<set
+        name="avdelingOmsetnings"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+		order-by="PERIODE desc"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingOmsetning"
+        />
+    </set>
+    
+    <set
+        name="speiletBetingelses"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.SpeiletBetingelse"
+        />
+    </set>
+    
+    <set
+        name="avdelingMangels"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingMangel"
+        />
+    </set>
+    <many-to-one
+        name="department"
+        class="no.ica.fraf.model.Rik2AvdV"
+        not-null="false"
+        insert="false"
+        update="false"
+    >
+        <column name="AVDNR" />
+    </many-to-one>
+	
+	<set
+        name="garantier"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVDELING_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.Garanti"
+        />
+    </set>
+	
+</class>
+</hibernate-mapping>

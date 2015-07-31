@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Mva" 
+    table="MVA"
+>
+
+    <id
+        name="mvaId"
+        type="java.lang.Integer"
+        column="MVA_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_mva</param>
+        </generator>
+    </id>
+
+	<property
+        name="mvaKode"
+        type="java.lang.String"
+        column="MVA_KODE"
+        length="3"
+    />
+
+    <property
+        name="mvaVerdi"
+        type="java.math.BigDecimal"
+        column="MVA_VERDI"
+        length="22"
+    />
+    
+    <property
+        name="motsattMvaKode"
+        type="java.lang.String"
+        column="MOTSATT_MVA_KODE"
+        length="3"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to BetingelseType -->
+    <set
+        name="betingelseTypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="MVA_KODE" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.BetingelseType"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

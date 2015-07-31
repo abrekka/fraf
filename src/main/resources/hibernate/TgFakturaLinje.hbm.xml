@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgFakturaLinje" 
+    table="TG_FAKTURA_LINJE"
+>
+
+    <id
+        name="tgFakturaLinjeId"
+        type="java.lang.Integer"
+        column="TG_FAKTURA_LINJE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="linjeBeskrivelse"
+        type="java.lang.String"
+        column="LINJE_BESKRIVELSE"
+        not-null="true"
+        length="255"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="mvaKode"
+        type="java.lang.String"
+        column="MVA_KODE"
+        not-null="false"
+        length="10"
+    />
+    <property
+        name="mvaBelop"
+        type="java.math.BigDecimal"
+        column="MVA_BELOP"
+        not-null="false"
+        length="32"
+    />
+	
+	<property
+        name="antall"
+        type="java.lang.Integer"
+        column="ANTALL"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="nettoBelop"
+        type="java.math.BigDecimal"
+        column="NETTO_BELOP"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="transDato"
+        type="java.util.Date"
+        column="TRANS_DATO"
+        length="32"
+    />
+		<property
+        name="pris"
+        type="java.math.BigDecimal"
+        column="PRIS"
+        length="32"
+    />
+
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="tgFaktura"
+        class="no.ica.tollpost.model.TgFaktura"
+        not-null="true"
+    >
+        <column name="TG_FAKTURA_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

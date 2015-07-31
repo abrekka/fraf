@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.SpeiletBetingelse" 
+    table="SPEILET_BETINGELSE"
+>
+
+    <id
+        name="speiletId"
+        type="java.lang.Integer"
+        column="SPEILET_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_speilet_betingelse</param>
+        </generator>
+    </id>
+
+    <property
+        name="kontraktObjektId"
+        type="java.lang.Integer"
+        column="KONTRAKT_OBJEKT_ID"
+        not-null="true"
+        length="32"
+    />
+    
+    
+    <property
+        name="speiletFraDato"
+        type="java.util.Date"
+        column="SPEILET_FRA_DATO"
+        not-null="true"
+        length="10"
+    />
+    
+    <property
+        name="fenistraBetingelse"
+        type="java.lang.String"
+        column="FENISTRA_BETINGELSE"
+        not-null="false"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+  	<many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avdelingBetingelse"
+        class="no.ica.fraf.model.AvdelingBetingelse"
+        not-null="true"
+    >
+        <column name="AVDELING_BETINGELSE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="avregningFrekvensType"
+        class="no.ica.fraf.model.AvregningFrekvensType"
+        not-null="true"
+    >
+        <column name="AVREGNING_FREKVENS_TYPE_ID" />
+    </many-to-one>
+
+	<set
+        name="speiletKostnads"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="SPEILET_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.SpeiletKostnad"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

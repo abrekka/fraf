@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.elfa.model.BatchStatus" 
+    table="BATCH_STATUS"
+>
+
+    <id
+        name="status"
+        type="java.lang.Integer"
+        column="STATUS"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="statusDescription"
+        type="java.lang.String"
+        column="STATUS_DESCRIPTION"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Batch -->
+    <set
+        name="batches"
+        lazy="true"
+        inverse="false"
+		cascade="all"
+    >
+        <key>
+            <column name="BATCH_STATUS" />
+        </key>
+        <one-to-many 
+            class="no.ica.elfa.model.Batch"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.RegnskapKladd" 
+    table="REGNSKAP_KLADD_TEST"
+>
+
+    <id
+        name="regnskapKladdId"
+        type="java.lang.Integer"
+        column="REGNSKAP_KLADD_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="selskap"
+        type="java.lang.String"
+        column="SELSKAP"
+        length="20"
+    />
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="22"
+    />
+    <property
+        name="konto"
+        type="java.lang.String"
+        column="KONTO"
+        length="20"
+    />
+    <property
+        name="regnskapDato"
+        type="java.sql.Timestamp"
+        column="REGNSKAP_DATO"
+        length="7"
+    />
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="38"
+    />
+    <property
+        name="tekst"
+        type="java.lang.String"
+        column="TEKST"
+        length="255"
+    />
+    <property
+        name="mvaKode"
+        type="java.lang.String"
+        column="MVA_KODE"
+        length="20"
+    />
+    <property
+        name="kontoType"
+        type="java.lang.String"
+        column="KONTO_TYPE"
+        length="3"
+    />
+    <property
+        name="fakturaNr"
+        type="java.lang.String"
+        column="FAKTURA_NR"
+        length="50"
+    />
+    <property
+        name="forfallDato"
+        type="java.sql.Timestamp"
+        column="FORFALL_DATO"
+        length="7"
+    />
+    <property
+        name="kladdNavn"
+        type="java.lang.String"
+        column="KLADD_NAVN"
+        length="15"
+    />
+	<property
+        name="prosjekt"
+        type="java.lang.String"
+        column="PROSJEKT"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Bunt -->
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+		lazy="proxy"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="faktura"
+        class="no.ica.fraf.model.Faktura"
+        not-null="true"
+    >
+        <column name="FAKTURA_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

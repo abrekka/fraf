@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BokfSelskap" 
+    table="BOKF_SELSKAP_TEST"
+>
+
+    <id
+        name="selskapId"
+        type="java.lang.Integer"
+        column="SELSKAP_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_bokf_selskap_TEST</param>
+        </generator>
+    </id>
+
+	<property
+        name="selskapNavn"
+        type="java.lang.String"
+        column="SELSKAP_NAVN"
+        length="50"
+    />
+    
+    <property
+        name="ibruk"
+        type="java.lang.Integer"
+        column="IBRUK"
+        length="50"
+    />
+    
+    <property
+        name="fakturaNr"
+        type="java.math.BigDecimal"
+        column="FAKTURA_NR"
+        length="50"
+    />
+    
+    <property
+        name="sistEndret"
+        type="java.util.Date"
+        column="SIST_ENDRET"
+        length="50"
+    />
+    <property
+        name="tilPs"
+        type="java.lang.Integer"
+        column="TIL_PS"
+        not-null="true"
+        length="1"
+    />
+        <property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        length="255"
+    />
+    <property
+        name="adresse1"
+        type="java.lang.String"
+        column="ADRESSE1"
+        length="255"
+    />
+    <property
+        name="adresse2"
+        type="java.lang.String"
+        column="ADRESSE2"
+        length="255"
+    />
+    <property
+        name="adresse3"
+        type="java.lang.String"
+        column="ADRESSE3"
+        length="255"
+    />
+    <property
+        name="telefon"
+        type="java.lang.String"
+        column="TELEFON"
+        length="20"
+    />
+    <property
+        name="telefax"
+        type="java.lang.String"
+        column="TELEFAX"
+        length="20"
+    />
+    <property
+        name="orgNr"
+        type="java.lang.String"
+        column="ORG_NR"
+        length="20"
+    />
+    <property
+        name="kontonr"
+        type="java.lang.String"
+        column="KONTONR"
+        length="20"
+    />
+	<property
+        name="lokasjonsnr"
+        type="java.lang.String"
+        column="LOKASJONSNR"
+        length="20"
+    />
+	<property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="20"
+    />
+	<property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="20"
+    />
+	<property
+        name="orgnr"
+        type="java.lang.String"
+        column="ORGNR"
+        length="20"
+    />
+	<property
+        name="momsid"
+        type="java.lang.String"
+        column="MOMSID"
+        length="20"
+    />
+	<property
+        name="filialKonto"
+        type="java.lang.String"
+        column="FILIAL_KONTO"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

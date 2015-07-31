@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<bean id="tgNotImportedVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgNotImportedVManagerImpl">
+				<property name="tgNotImportedVDAO" ref="tgNotImportedVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgMeldingExtVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgMeldingExtVManagerImpl">
+				<property name="tgMeldingExtVDAO" ref="tgMeldingExtVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgImportManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgImportManagerImpl">
+				<property name="tgImportDAO" ref="tgImportDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgFakturaManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgFakturaManagerImpl">
+				<property name="tgFakturaDAO" ref="tgFakturaDAO"/>
+				<property name="buntDAO" ref="buntDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgE2bPkgManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgE2bPkgManagerImpl">
+				<property name="e2bPkgDAO" ref="tgE2bPkgDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgFileSequenceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgFileSequenceManagerImpl">
+				<property name="fileSequenceDAO" ref="tgFileSequenceDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgFakturaLinjeVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgFakturaLinjeVManagerImpl">
+				<property name="tgFakturaLinjeVDAO" ref="tgFakturaLinjeVDAO"/>
+			</bean>
+		</property>
+	</bean>
+<bean id="tgTotalFaktureringVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgTotalFaktureringVManagerImpl">
+				<property name="tgTotalFaktureringVDAO" ref="tgTotalFaktureringVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tgReconcilVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.tollpost.service.impl.TgReconcilVManagerImpl">
+				<property name="tgReconcilVDAO" ref="tgReconcilVDAO"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

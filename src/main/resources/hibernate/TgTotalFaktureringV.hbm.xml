@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgTotalFaktureringV" 
+    table="TG_TOTAL_FAKTURERING_V"
+>
+
+<composite-id name="tgTotalFaktureringVPK" class="no.ica.tollpost.model.TgTotalFaktureringVPK">
+        <key-property 
+            name="buntId" 
+            column="BUNT_ID" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="lopenrFil" 
+            column="LOPENR_FIL" 
+            type="java.lang.String"
+            length="50"
+        />
+      </composite-id>
+    <property
+        name="totalBelop"
+        type="java.math.BigDecimal"
+        column="TOTAL_BELOP"
+        not-null="true"
+        length="32"
+    />
+</class>
+</hibernate-mapping>

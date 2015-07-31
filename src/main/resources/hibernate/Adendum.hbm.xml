@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Adendum" 
+    table="ADENDUM"
+>
+
+    <id
+        name="adendumId"
+        type="java.lang.Integer"
+        column="ADENDUM_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_adendum</param>
+        </generator>
+    </id>
+
+	<property
+        name="adendumNr"
+        type="java.lang.Integer"
+        column="ADENDUM_NR"
+        length="35"
+    />
+
+	<property
+        name="adendumTxt"
+        type="java.lang.String"
+        column="ADENDUM_TXT"
+        length="500"
+    />
+    
+    <property
+        name="underskriftDato"
+        type="java.util.Date"
+        column="UNDERSKRIFT_DATO"
+        length="7"
+    />
+    <!-- Associations -->
+	<many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+    >
+        <column name="AVDELING_ID" not-null="true" />
+    </many-to-one>
+  
+
+</class>
+</hibernate-mapping>

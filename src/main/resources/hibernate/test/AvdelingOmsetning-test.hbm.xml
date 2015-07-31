@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.AvdelingOmsetning" 
+    table="AVDELING_OMSETNING_TEST"
+>
+
+    <id
+        name="avdelingOmsetningId"
+        type="java.lang.Integer"
+        column="AVDELING_OMSETNING_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avdeling_omsetning_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="22"
+    />
+    <property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+        length="22"
+    />
+    <property
+        name="periode"
+        type="java.lang.Integer"
+        column="PERIODE"
+        length="22"
+    />
+    
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="38"
+    />
+    <property
+        name="korreksjonBelop"
+        type="java.math.BigDecimal"
+        column="KORREKSJON_BELOP"
+        length="38"
+    />
+    <property
+        name="korrigertBelop"
+        type="java.math.BigDecimal"
+        column="KORRIGERT_BELOP"
+        length="38"
+    />
+    <!--property
+        name="innlesBuntId"
+        type="java.lang.Integer"
+        column="INNLES_BUNT_ID"
+        length="22"
+    />
+    <property
+        name="korreksjonBuntId"
+        type="java.lang.Integer"
+        column="KORREKSJON_BUNT_ID"
+        length="22"
+    />
+    <property
+        name="fakturaBuntId"
+        type="java.lang.Integer"
+        column="FAKTURA_BUNT_ID"
+        length="22"
+    /-->
+    <property
+        name="korreksjonKommentar"
+        type="java.lang.String"
+        column="KORREKSJON_KOMMENTAR"
+        length="2000"
+    />
+    <property
+        name="manuell"
+        type="java.lang.Integer"
+        column="MANUELL"
+        length="22"
+    />
+	<property
+        name="avregning"
+        type="java.math.BigDecimal"
+        column="AVREGNING"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+    <many-to-one
+        name="avregningBasisType"
+        class="no.ica.fraf.model.AvregningBasisType"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVREGNING_BASIS_TYPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="innlesBunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="INNLES_BUNT_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="korreksjonBunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="KORREKSJON_BUNT_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="fakturaBunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="false"
+        lazy="false"
+    >
+        <column name="FAKTURA_BUNT_ID" />
+    </many-to-one>
+
+	<many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

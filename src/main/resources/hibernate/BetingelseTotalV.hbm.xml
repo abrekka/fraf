@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BetingelseTotalV" 
+    table="BETINGELSE_TOTAL_V"
+>
+
+    <composite-id name="betingelseTotalVPK" class="no.ica.fraf.model.BetingelseTotalVPK">
+        <key-property 
+            name="bokfSelskap" 
+            column="BOKF_SELSKAP" 
+            type="java.lang.String"
+            length="100"
+        />
+        <key-property 
+            name="aar" 
+            column="AAR" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="fraPeriode" 
+            column="FRA_PERIODE" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="tilPeriode" 
+            column="TIL_PERIODE" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="betingelseNavn" 
+            column="BETINGELSE_NAVN" 
+            type="java.lang.String"
+            length="100"
+        />
+    </composite-id>    
+
+    <property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="30"
+    />
+    <property
+        name="mvaBelop"
+        type="java.math.BigDecimal"
+        column="MVA_BELOP"
+        length="30"
+    />
+    <property
+        name="totalBelop"
+        type="java.math.BigDecimal"
+        column="TOTAL_BELOP"
+        length="30"
+    />
+    <property
+        name="betingelseGruppeId"
+        type="java.lang.Integer"
+        column="BETINGELSE_GRUPPE_ID"
+        length="30"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

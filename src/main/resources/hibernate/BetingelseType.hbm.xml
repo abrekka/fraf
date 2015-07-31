@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.BetingelseType" 
+    table="BETINGELSE_TYPE"
+>
+
+    <id
+        name="betingelseTypeId"
+        type="java.lang.Integer"
+        column="BETINGELSE_TYPE_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_betingelse_type</param>
+        </generator>
+    </id>
+
+    <property
+        name="betingelseTypeKode"
+        type="java.lang.String"
+        column="BETINGELSE_TYPE_KODE"
+        length="10"
+    />
+    <property
+        name="betingelseNavn"
+        type="java.lang.String"
+        column="BETINGELSE_NAVN"
+        length="50"
+    />
+    <!--property
+        name="isDebit"
+        type="java.lang.Integer"
+        column="IS_DEBIT"
+        not-null="true"
+        length="1"
+    /-->
+    
+    <property
+        name="inntektskontoE"
+        type="java.lang.String"
+        column="INNTEKTSKONTO_E"
+        not-null="false"
+        length="20"
+    />
+	<property
+        name="inntektskontoF"
+        type="java.lang.String"
+        column="INNTEKTSKONTO_F"
+        not-null="false"
+        length="20"
+    />
+    
+    <property
+        name="fakturaTekst"
+        type="java.lang.String"
+        column="FAKTURA_TEKST"
+        length="10"
+    />
+    <property
+        name="fakturaTekstRek"
+        type="java.lang.Integer"
+        column="FAKTURA_TEKST_REK"
+        length="32"
+    />
+	<property
+        name="xmlKontoE"
+        type="java.lang.String"
+        column="XML_KONTO_E"
+        length="20"
+    />
+	<property
+        name="xmlKontoF"
+        type="java.lang.String"
+        column="XML_KONTO_F"
+        length="20"
+    />
+	<property
+        name="sats"
+        type="java.math.BigDecimal"
+        column="SATS"
+        length="32"
+    />
+	<property
+        name="belop"
+        type="java.math.BigDecimal"
+        column="BELOP"
+        length="32"
+    />
+	<property
+        name="belopPrStk"
+        type="java.math.BigDecimal"
+        column="BELOP_PR_STK"
+        length="32"
+    />
+	<property
+        name="bokfAvdelingE"
+        type="java.lang.String"
+        column="BOKF_AVDELING_E"
+        length="20"
+    />
+	<!--property
+        name="forFilial"
+        type="java.lang.Integer"
+        column="FOR_FILIAL"
+        length="32"
+    /-->
+	<property
+        name="xmlMvatypeE"
+        type="java.lang.String"
+        column="XML_MVATYPE_E"
+        length="2"
+    />
+	<property
+        name="xmlMvatypeF"
+        type="java.lang.String"
+        column="XML_MVATYPE_F"
+        length="2"
+    />
+	<property
+        name="xmlVatusetypeE"
+        type="java.lang.String"
+        column="XML_VATUSETYPE_E"
+        length="10"
+    />
+	<property
+        name="xmlVatusetypeF"
+        type="java.lang.String"
+        column="XML_VATUSETYPE_F"
+        length="10"
+    />
+	<property
+        name="linkAvtale"
+        type="java.lang.Integer"
+        column="LINK_AVTALE"
+        length="32"
+    />
+	<property
+        name="inaktiv"
+        type="java.lang.Integer"
+        column="INAKTIV"
+        length="32"
+    />
+	<property
+        name="bokfAvdelingF"
+        type="java.lang.String"
+        column="BOKF_AVDELING_F"
+        length="20"
+    />
+	
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to KontraktBetingelse -->
+    <set
+        name="kontraktBetingelses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BETINGELSE_TYPE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.KontraktBetingelse"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to FakturaLinje -->
+    <set
+        name="fakturaLinjes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <key>
+            <column name="BETINGELSE_TYPE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.FakturaLinje"
+        />
+    </set>
+   
+    <!-- bi-directional one-to-many association to AvdelingBetingelse -->
+    <!--set
+        name="avdelingBetingelses"
+        lazy="true"
+        inverse="false"
+		cascade="all"
+    >
+        <key>
+            <column name="BETINGELSE_TYPE_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingBetingelse"
+        />
+    </set-->
+    <!-- bi-directional many-to-one association to Mva -->
+    <many-to-one
+        name="mvaE"
+        class="no.ica.fraf.model.Mva"
+        not-null="true"
+    >
+        <column name="MVA_ID_E" />
+    </many-to-one>
+	<many-to-one
+        name="mvaF"
+        class="no.ica.fraf.model.Mva"
+        not-null="true"
+    >
+        <column name="MVA_ID_F" />
+    </many-to-one>
+    
+    <many-to-one
+        name="betingelseGruppe"
+        class="no.ica.fraf.model.BetingelseGruppe"
+        not-null="true"
+    >
+        <column name="BETINGELSE_GRUPPE_ID" />
+    </many-to-one>
+    
+    <many-to-one
+        name="bokfSelskap"
+        class="no.ica.fraf.model.BokfSelskap"
+        not-null="true"
+    >
+        <column name="SELSKAP_ID" />
+    </many-to-one>
+	<many-to-one
+        name="xmlMvaE"
+        class="no.ica.fraf.model.Mva"
+        not-null="true"
+    >
+        <column name="XML_MVA_ID_E" />
+    </many-to-one>
+	<many-to-one
+        name="xmlMvaF"
+        class="no.ica.fraf.model.Mva"
+        not-null="true"
+    >
+        <column name="XML_MVA_ID_F" />
+    </many-to-one>
+	<many-to-one
+        name="chain"
+        class="no.ica.fraf.model.Rik2KjedeV"
+        not-null="true"
+    >
+        <column name="KJEDE_ID" />
+    </many-to-one>
+	<many-to-one
+        name="avregningFrekvensType"
+        class="no.ica.fraf.model.AvregningFrekvensType"
+        not-null="true"
+    >
+        <column name="AVREGNING_FREKVENS_TYPE_ID" />
+    </many-to-one>
+	<many-to-one
+        name="avregningType"
+        class="no.ica.fraf.model.AvregningType"
+        not-null="true"
+    >
+        <column name="AVREGNING_TYPE_ID" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

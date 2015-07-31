@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+
+<class 
+    name="no.ica.tollpost.model.TgFaktura" 
+    table="TG_FAKTURA"
+>
+
+    <id
+        name="tgFakturaId"
+        type="java.lang.Integer"
+        column="TG_FAKTURA_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        not-null="true"
+        length="32"
+    />
+    <property
+        name="fakturaDato"
+        type="java.util.Date"
+        column="FAKTURA_DATO"
+        not-null="false"
+        length="12"
+    />
+	<property
+        name="forfallDato"
+        type="java.util.Date"
+        column="FORFALL_DATO"
+        not-null="false"
+        length="10"
+    />
+    <property
+        name="fakturaNr"
+        type="java.math.BigDecimal"
+        column="FAKTURA_NR"
+        not-null="false"
+        length="32"
+    />
+	
+	<property
+        name="fakturaBelop"
+        type="java.math.BigDecimal"
+        column="FAKTURA_BELOP"
+        not-null="false"
+        length="32"
+    />
+	<property
+        name="opprettetDato"
+        type="java.util.Date"
+        column="OPPRETTET_DATO"
+        length="10"
+    />
+	<property
+        name="fakturaTittel"
+        type="java.lang.String"
+        column="FAKTURA_TITTEL"
+        length="255"
+    />
+	<property
+        name="mottakerNavn"
+        type="java.lang.String"
+        column="MOTTAKER_NAVN"
+        length="255"
+    />
+    <property
+        name="adresse1"
+        type="java.lang.String"
+        column="ADRESSE1"
+        length="255"
+    />
+	<property
+        name="adresse2"
+        type="java.lang.String"
+        column="ADRESSE2"
+        length="255"
+    />
+	<property
+        name="postnr"
+        type="java.lang.String"
+        column="POSTNR"
+        length="4"
+    />
+
+	<property
+        name="poststed"
+        type="java.lang.String"
+        column="POSTSTED"
+        length="255"
+    />
+	<property
+        name="provisjonButikk"
+        type="java.math.BigDecimal"
+        column="PROVISJON_BUTIKK"
+        length="32"
+    />
+	<property
+        name="provisjonIca"
+        type="java.math.BigDecimal"
+        column="PROVISJON_ICA"
+        length="32"
+    />
+	<property
+        name="mvaButikk"
+        type="java.math.BigDecimal"
+        column="MVA_BUTIKK"
+        length="32"
+    />
+	<property
+        name="mvaIca"
+        type="java.math.BigDecimal"
+        column="MVA_ICA"
+        length="32"
+    />
+	<property
+        name="meldingstype"
+        type="java.lang.String"
+        column="MELDINGSTYPE"
+        length="100"
+    />
+	<property
+        name="kid"
+        type="java.lang.String"
+        column="KID"
+        length="20"
+    />
+	<property
+        name="icaKonto"
+        type="java.lang.Integer"
+        column="ICA_KONTO"
+        length="1"
+    />
+	<property
+        name="xmlGenerert"
+        type="java.util.Date"
+        column="XML_GENERERT"
+        length="32"
+    />
+
+	
+    <!-- Associations -->
+  
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="true"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+	<set
+        name="tgFakturaLinjer"
+        lazy="true"
+		fetch="join"
+        inverse="true"
+		cascade="all"
+		order-by="TRANS_DATO"
+    >
+        <key>
+            <column name="TG_FAKTURA_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.tollpost.model.TgFakturaLinje"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

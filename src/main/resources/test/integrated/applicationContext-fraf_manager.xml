@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false">
+	<bean id="eflowUsersVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.EflowUsersVManagerImpl">
+				<property name="eflowUsersVDAO" ref="eflowUsersVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="avdelingAvregningBelopManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningBelopManagerImpl">
+				<property name="avdelingAvregningBelopDAO" ref="avdelingAvregningBelopDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="avdelingAvregningManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningManagerImpl">
+				<property name="avdelingAvregningDAO" ref="avdelingAvregningDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="totalAvregningVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.TotalAvregningVManagerImpl">
+				<property name="totalAvregningVDAO" ref="totalAvregningVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="frafE2bPkgManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.FrafE2bPkgManagerImpl">
+				<property name="e2bPkgDAO" ref="frafE2bPkgDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<!--  bean id="frafMainFrameHandler" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.gui.FrafMainFrameHandler">
+				<property name="applUserDAO" ref="applUserDAO"/>
+				<property name="avregningFrekvensTypeDAO" ref="avregningFrekvensTypeDAO"/>
+				<property name="avregningTypeDAO" ref="avregningTypeDAO"/>
+				<property name="betingelseGruppeDAO" ref="betingelseGruppeDAO"/>
+				<property name="betingelseTypeDAO" ref="betingelseTypeDAO"/>
+				<property name="bokfSelskapDAO" ref="bokfSelskapDAO"/>
+				<property name="kontraktTypeDAO" ref="kontraktTypeDAO"/>
+				<property name="loggDAO" ref="loggDAO"/>
+				<property name="laasDAO" ref="laasDAO"/>
+				<property name="mangelTypeDAO" ref="mangelTypeDAO"/>
+				<property name="mvaDAO" ref="mvaDAO"/>
+				
+			</bean>
+		</property>
+	</bean>-->
+
+	<!--bean id="frafMainMenuBar" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.gui.FrafMainMenuBar">
+				<property name="frafMainFrameHandlerInterface" ref="frafMainFrameHandler"/>
+				<property name="applUserTypeDAO" ref="applUserTypeDAO"/>
+				<property name="avregningTypeDAO" ref="avregningTypeDAO"/>
+				<property name="avregningBasisTypeDAO" ref="avregningBasisTypeDAO"/>
+				<property name="betingelseGruppeDAO" ref="betingelseGruppeDAO"/>
+				<property name="fakturaBuntVDAO" ref="fakturaBuntVDAO"/>
+				<property name="buntPkgDAO" ref="buntPkgDAO"/>
+				<property name="buntDAO" ref="buntDAO"/>
+				<property name="regnskapPkgDAO" ref="regnskapPkgDAO"/>
+				<property name="fakturaDAO" ref="fakturaDAO"/>
+				<property name="rik2StoreVManager" ref="rik2StoreVManager"/>
+
+				<property name="buntStatusDAO" ref="buntStatusDAO"/>
+				<property name="e2bFrafPkgManager" ref="frafE2bPkgManager"/>
+				<property name="mvaDAO" ref="mvaDAO"/>
+				<property name="avdelingVDAO" ref="avdelingVDAO"/>
+				<property name="laasTypeDAO" ref="laasTypeDAO"/>
+				<property name="laasDAO" ref="laasDAO"/>
+				<property name="franchisePkgDAO" ref="franchisePkgDAO"/>
+				<property name="betingelseTypeDAO" ref="betingelseTypeDAO"/>
+				<property name="buntFeilDAO" ref="buntFeilDAO"/>
+				<property name="fakturaFeilDAO" ref="fakturaFeilDAO"/>
+				<property name="fakturaTekstVManager" ref="fakturaTekstVManager"/>
+				<property name="eflowUsersVManager" ref="eflowUsersVManager"/>
+			</bean>
+		</property>
+	</bean-->
+	<bean id="avdelingAvregningImportManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.AvdelingAvregningImportManagerImpl">
+				<property name="avdelingAvregningImportDAO" ref="avdelingAvregningImportDAO"/>
+				<property name="avdelingOmsetningDAO" ref="avdelingOmsetningDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="fakturaTekstVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.FakturaTekstVManagerImpl">
+				<property name="fakturaTekstVDAO" ref="fakturaTekstVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="speiletBetingelseMangelVManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SpeiletBetingelseMangelVManagerImpl">
+				<property name="speiletBetingelseMangelVDAO" ref="speiletBetingelseMangelVDAO"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="paperManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.PaperManagerIntegrated">
+				<property name="eflowUsersVManager" ref="eflowUsersVManager"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sapSaleManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="no.ica.fraf.service.impl.SapSaleManagerImpl">
+				<property name="sapSaleDAO" ref="sapSaleDAO"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

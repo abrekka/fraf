@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.Rik2DistriktssjeferV" 
+    table="RIK2_DISTRIKTSSJEFER_V_TEST"
+>
+
+    <id
+        name="distriktssjef"
+        type="java.lang.Integer"
+        column="DISTRIKTSSJEF"
+    >
+    
+        <generator class="assigned"/>
+    </id>
+
+	<property
+        name="navn"
+        type="java.lang.String"
+        column="NAVN"
+        length="255"
+    />
+    <property
+        name="kjede"
+        type="java.lang.Integer"
+        column="KJEDE"
+        length="32"
+    />
+    <property
+        name="mobiltelefon"
+        type="java.lang.Integer"
+        column="MOBILTELEFON"
+        length="32"
+    />
+    <property
+        name="email"
+        type="java.lang.String"
+        column="EMAIL"
+        length="100"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<class 
+    name="no.ica.fraf.model.AvdelingAvregningImport" 
+    table="AVDELING_AVREGNING_IMPORT_TEST"
+>
+
+    <id
+        name="avregningImportId"
+        type="java.lang.Integer"
+        column="aVREGNING_IMPORT_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_avregning_import_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="avdnr"
+        type="java.lang.Integer"
+        column="AVDNR"
+        length="32"
+        not-null="true"
+    />
+	<property
+        name="aar"
+        type="java.lang.Integer"
+        column="AAR"
+        length="32"
+        not-null="true"
+    />
+    
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Avdeling -->
+    <many-to-one
+        name="avdeling"
+        class="no.ica.fraf.model.Avdeling"
+        not-null="true"
+        lazy="false"
+    >
+        <column name="AVDELING_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to BetingelseType -->
+    
+    
+    <many-to-one
+        name="bunt"
+        class="no.ica.fraf.model.Bunt"
+        not-null="false"
+        lazy="proxy"
+    >
+        <column name="BUNT_ID" />
+    </many-to-one>
+    
+    <set
+        name="avdelingAvregningBelops"
+        lazy="true"
+        inverse="true"
+		cascade="all-delete-orphan"
+    >
+        <key>
+            <column name="AVREGNING_IMPORT_ID" />
+        </key>
+        <one-to-many 
+            class="no.ica.fraf.model.AvdelingAvregningBelop"
+        />
+    </set>
+</class>
+</hibernate-mapping>

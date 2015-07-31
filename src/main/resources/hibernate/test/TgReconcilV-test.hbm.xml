@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.tollpost.model.TgReconcilV" 
+    table="TG_RECONCIL_V_TEST"
+>
+
+   <composite-id name="tgReconcilVPK" class="no.ica.tollpost.model.TgReconcilVPK">
+        <key-property 
+            name="buntId" 
+            column="BUNT_ID" 
+            type="java.lang.Integer"
+            length="32"
+        />
+        <key-property 
+            name="meldingstype" 
+            column="MELDINGSTYPE" 
+            type="java.lang.String"
+            length="50"
+        />
+      </composite-id>
+
+    <property
+        name="netto"
+        type="java.math.BigDecimal"
+        column="NETTO"
+        length="32"
+    />
+    <property
+        name="mva"
+        type="java.math.BigDecimal"
+        column="MVA"
+        length="32"
+    />
+   
+    <property
+        name="antall"
+        type="java.lang.Integer"
+        column="ANTALL"
+        length="32"
+    />
+	<property
+        name="xmlCount"
+        type="java.lang.Integer"
+        column="XML_COUNT"
+        length="32"
+    />
+   
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Invoice -->
+   
+</class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="no.ica.fraf.model.MangelType" 
+    table="MANGEL_TYPE_TEST"
+>
+
+    <id
+        name="mangelId"
+        type="java.lang.Integer"
+        column="MANGEL_ID"
+    >
+    
+        <generator class="sequence">
+            <param name="sequence">seq_mangel_type_TEST</param>
+        </generator>
+    </id>
+
+    <property
+        name="mangelKode"
+        type="java.lang.String"
+        column="MANGEL_KODE"
+        length="50"
+    />
+    <property
+        name="mangelBeskrivelse"
+        type="java.lang.String"
+        column="MANGEL_BESKRIVELSE"
+        length="255"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to KontraktBetingelse -->
+
+</class>
+</hibernate-mapping>
